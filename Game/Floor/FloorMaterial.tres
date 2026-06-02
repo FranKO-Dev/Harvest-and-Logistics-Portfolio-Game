@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dv6r24p285tql"]
+
+[ext_resource type="Texture2D" uid="uid://cyqooravqip1" path="res://addons/kenney_prototype_textures/dark/texture_06.png" id="1_uv8vo"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_uv8vo")
+uv1_offset = Vector3(0.5, 0, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+disable_receive_shadows = true

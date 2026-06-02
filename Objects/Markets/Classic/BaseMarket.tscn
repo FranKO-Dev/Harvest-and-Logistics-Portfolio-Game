@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cxdnvigt5g15m"]
+
+[ext_resource type="Material" uid="uid://tebkxsj14ff8" path="res://Objects/Materials/Special.tres" id="1_gj7j5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ot0r3"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gj7j5"]
+size = Vector3(0.75, 0.5, 0.74)
+
+[node name="BaseMarket" type="Node3D" unique_id=1244832729]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1568246091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_ot0r3")
+surface_material_override/0 = ExtResource("1_gj7j5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=174333884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("BoxMesh_gj7j5")
+surface_material_override/0 = ExtResource("1_gj7j5")

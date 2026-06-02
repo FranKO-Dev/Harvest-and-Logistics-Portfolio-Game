@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://be2ilxgpiw6rh"]
+
+[ext_resource type="Material" uid="uid://bo1eyqlf42lex" path="res://Objects/Materials/Asphalt.tres" id="1_rp60s"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lny5b"]
+size = Vector2(1, 1)
+
+[node name="FourLanesRoad" type="Node3D" unique_id=2136697383]
+
+[node name="Surface" type="MeshInstance3D" parent="." unique_id=293739980]
+mesh = SubResource("PlaneMesh_lny5b")
+surface_material_override/0 = ExtResource("1_rp60s")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bsym0j3xb7fdm"]
+
+[ext_resource type="Material" uid="uid://32nnwjv7bdhk" path="res://Objects/Decoration/Materials/Grass.tres" id="1_wfad4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j42jl"]
+size = Vector2(1, 1)
+
+[node name="Park" type="Node3D" unique_id=1482339144]
+
+[node name="Surface" type="MeshInstance3D" parent="." unique_id=92012502]
+mesh = SubResource("PlaneMesh_j42jl")
+surface_material_override/0 = ExtResource("1_wfad4")
