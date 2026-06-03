@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cr8jvlngweje3" path="res://Game/City/CityGenerator.gd" id="3_iv3md"]
 [ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/City/BlocksController.gd" id="4_jxerj"]
 [ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/City/PathwaysController.gd" id="5_ghvq8"]
+[ext_resource type="PackedScene" uid="uid://c07fnihro4xmj" path="res://Game/StarterGui/ControlPanel.tscn" id="8_oscxy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ghvq8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -162,3 +163,6 @@ size_flags_horizontal = 3
 text = "Bils 34"
 label_settings = SubResource("LabelSettings_fuqhk")
 vertical_alignment = 1
+
+[node name="ControlPanel" parent="StarterGui" unique_id=208419686 instance=ExtResource("8_oscxy")]
+visible = false
