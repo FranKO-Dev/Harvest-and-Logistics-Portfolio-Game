@@ -1,8 +1,8 @@
 extends Node3D
 
 # Node that controls the city
-@onready var CityGenerator = $CityGenerator
+@export var city_generator: CityGenerator
 
 func _ready() -> void:
-	CityGenerator.start_city()
+	city_generator.start_city()
 	pass

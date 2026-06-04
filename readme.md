@@ -4,18 +4,18 @@ Own a farm, harvest crops, send trucks to markets, and expand your land!
 
 ## Main Loop
 
-Your Headquarters is the center of your operation. Trucks leave from and return to it, and it's where all harvested crops are prepared for delivery to nearby markets.
+Your Farmhouse is the center of your operation. Trucks leave from and return to it, and it's where all harvested crops are prepared for delivery to nearby markets.
 
 Feed markets to help them grow and develop the city. As markets level up, new markets become available, creating more opportunities to sell your crops.
 
-Buy more land and upgrade your Headquarters to unlock better seeds and improve production.
+Buy more land and upgrade your Farmhouse to unlock better seeds and improve production.
 
 Use *Coins* to:
 
 * Buy seeds
 * Pay truck drivers
 * Purchase new land
-* Upgrade your Headquarters
+* Upgrade your Farmhouse
 
 Use *Bills* to:
 

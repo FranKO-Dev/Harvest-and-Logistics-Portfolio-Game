@@ -1,4 +1,5 @@
 extends Node
+class_name CityGenerator
 
 # Module we'll use to generate our city, where each maze is a block.
 var MazeGenerator = preload("res://Game/Utility/MazeGenerator.gd").new()

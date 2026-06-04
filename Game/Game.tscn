@@ -4,9 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://b3eti7dv76vdc" path="res://Public/icon.svg" id="1_hqwdr"]
 [ext_resource type="Material" uid="uid://dv6r24p285tql" path="res://Game/Floor/FloorMaterial.tres" id="1_vrr3t"]
 [ext_resource type="Script" uid="uid://tdsejmhlusq7" path="res://Game/Player/CurrencyHandler.gd" id="2_fuqhk"]
-[ext_resource type="Script" uid="uid://cr8jvlngweje3" path="res://Game/City/CityGenerator.gd" id="3_iv3md"]
-[ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/City/BlocksController.gd" id="4_jxerj"]
-[ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/City/PathwaysController.gd" id="5_ghvq8"]
+[ext_resource type="PackedScene" uid="uid://dp3ddgu1oghxm" path="res://Objects/Farmhouses/RookieFarmhouse/RookieFarmhouseBase.tscn" id="3_eqev2"]
+[ext_resource type="Script" uid="uid://cr8jvlngweje3" path="res://Game/WorldManager/City/CityGenerator.gd" id="3_iv3md"]
+[ext_resource type="Script" uid="uid://b2bdigf12ir46" path="res://Game/WorldManager/Farmhouse/Farmhouse.gd" id="3_r0byk"]
+[ext_resource type="Script" uid="uid://64u3c83nmlnq" path="res://Game/WorldManager/Farmhouse/LandController/LandController.gd" id="4_gp3ee"]
+[ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/WorldManager/City/BlocksController.gd" id="4_jxerj"]
+[ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysController.gd" id="5_ghvq8"]
 [ext_resource type="PackedScene" uid="uid://c07fnihro4xmj" path="res://Game/StarterGui/ControlPanel.tscn" id="8_oscxy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ghvq8"]
@@ -49,8 +52,9 @@ bg_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_fuqhk"]
 font_size = 32
 
-[node name="Game" type="Node3D" unique_id=697521637]
+[node name="Game" type="Node3D" unique_id=697521637 node_paths=PackedStringArray("city_generator")]
 script = ExtResource("1_ghvq8")
+city_generator = NodePath("WorldManager/CityGenerator")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1004974953]
 environment = SubResource("Environment_oscxy")
@@ -67,23 +71,12 @@ metadata/_edit_lock_ = true
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=780309891]
 transform = Transform3D(0.55556893, 0.54275066, -0.62989277, 0, 0.7575648, 0.65275997, 0.8314705, -0.36265317, 0.42087945, -11.673442, 14.147937, 8.5068245)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Player" unique_id=438807136]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3)
-size = Vector3(3, 1, 3)
+[node name="Modes" type="Node" parent="Player" unique_id=1346409730]
 
-[node name="LandController" type="Node" parent="Player" unique_id=1230336965]
+[node name="PlantingMode" type="Node" parent="Player/Modes" unique_id=652533495]
 
 [node name="CurrencyHandler" type="Node" parent="Player" unique_id=1929230055]
 script = ExtResource("2_fuqhk")
-
-[node name="CityGenerator" type="Node" parent="." unique_id=1485239737]
-script = ExtResource("3_iv3md")
-
-[node name="BlocksController" type="Node" parent="CityGenerator" unique_id=1676847567]
-script = ExtResource("4_jxerj")
-
-[node name="PathwaysController" type="Node" parent="CityGenerator" unique_id=1358021100]
-script = ExtResource("5_ghvq8")
 
 [node name="Background" type="Node" parent="." unique_id=16629213]
 
@@ -95,6 +88,27 @@ pixel_size = 1.0
 axis = 1
 texture = ExtResource("1_hqwdr")
 metadata/_edit_lock_ = true
+
+[node name="WorldManager" type="Node" parent="." unique_id=1909743692]
+
+[node name="Farmhouse" type="Node3D" parent="WorldManager" unique_id=340583283 node_paths=PackedStringArray("land_controller")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+script = ExtResource("3_r0byk")
+land_controller = NodePath("LandController")
+
+[node name="FarmhouseModel" parent="WorldManager/Farmhouse" unique_id=88368066 instance=ExtResource("3_eqev2")]
+
+[node name="LandController" type="Node" parent="WorldManager/Farmhouse" unique_id=1230336965]
+script = ExtResource("4_gp3ee")
+
+[node name="CityGenerator" type="Node" parent="WorldManager" unique_id=1485239737]
+script = ExtResource("3_iv3md")
+
+[node name="BlocksController" type="Node" parent="WorldManager/CityGenerator" unique_id=1676847567]
+script = ExtResource("4_jxerj")
+
+[node name="PathwaysController" type="Node" parent="WorldManager/CityGenerator" unique_id=1358021100]
+script = ExtResource("5_ghvq8")
 
 [node name="StarterGui" type="CanvasLayer" parent="." unique_id=1460679728]
 
