@@ -1,7 +1,7 @@
 extends Node 
-class_name LandController
+class_name LandHandler
 
-func spawn_land(x, y):
+func spawn_land(_x, _y):
 	pass
 
 ## Spawns a plant at the specified cell of a land at optional level.

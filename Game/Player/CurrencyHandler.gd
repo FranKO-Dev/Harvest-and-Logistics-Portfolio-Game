@@ -1,4 +1,4 @@
-extends Node
+extends RefCounted
 
 # Node meant for handling currencies in-game
 

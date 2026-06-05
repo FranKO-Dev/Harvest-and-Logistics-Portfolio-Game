@@ -1,0 +1,1 @@
+class_name PathwaysHandler extends Node

@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var land_controller: LandController
+@export var land_handler: LandHandler
 
 # Returns true if a plant is in the inventory
 func is_plant_in_inventory(_plant: Plant):

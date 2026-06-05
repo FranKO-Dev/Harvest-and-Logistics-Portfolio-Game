@@ -1,8 +1,8 @@
 extends Node3D
 
 # Node that controls the city
-@export var city_generator: CityGenerator
+@export var city_manager: CityManager
 
 func _ready() -> void:
-	city_generator.start_city()
+	city_manager.start_city()
 	pass

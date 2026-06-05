@@ -1,4 +1,4 @@
-extends Node
+class_name BlocksHandler extends Node
 
 var building_asset = preload("res://Objects/Decoration/Houses.tscn")
 var park_asset = preload("res://Objects/Decoration/Park.tscn")
@@ -16,7 +16,7 @@ var buildings_before_park: int = 0
 # Returts a list of generated Markets on the block.
 func place_block(
 	block_index: Vector2, block_size: int, 
-	generated_block: Array[Array], neighbors: Array[Vector2] = []) -> Array:
+	generated_block: Array[Array], _neighbors: Array[Vector2] = []) -> Array:
 	
 	var Block = Node3D.new(); var block_position = block_index * (block_size/2.0)
 	add_child(Block)
