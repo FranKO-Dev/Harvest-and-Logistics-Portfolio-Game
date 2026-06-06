@@ -21,7 +21,7 @@ const block_size: int = 7;
 var black_registry: Dictionary[Vector2, bool] = {}
 
 # Fired when a Marked has been generated
-signal market_added(Market: Node)
+#signal market_added(Market: Node)
 
 func _ready() -> void:
 	pass

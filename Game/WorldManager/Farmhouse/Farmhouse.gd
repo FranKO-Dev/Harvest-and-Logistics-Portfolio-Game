@@ -1,4 +1,4 @@
-extends Node3D
+class_name Farmhouse extends Node3D
 
 @export var land_handler: LandHandler
 

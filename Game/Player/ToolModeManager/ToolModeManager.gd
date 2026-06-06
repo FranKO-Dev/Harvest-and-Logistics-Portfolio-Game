@@ -1,4 +1,4 @@
-extends Node
+class_name ToolModeManager extends Node
 
 ## Tool mode currently handled
 var current_tool_mode: ToolModeClass

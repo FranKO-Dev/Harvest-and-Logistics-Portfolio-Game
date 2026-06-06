@@ -31,20 +31,24 @@ script/source = "extends Control
 @onready var coins_label = $MarginContainer/HBoxContainer/Coins/Label
 @onready var bills_label = $MarginContainer/HBoxContainer/Bills/Label
 
-@export var player: PlayerClass
-@onready var currency_handler = player.currency_handler
+@export var player: Player
 
 func _ready() -> void:
-	coins_label.text = \"Coins \" + var_to_str(currency_handler.coins)
-	currency_handler.coins_changed.connect(func(_a, value):
-		coins_label.text = \"Coins \" + var_to_str(value)
-		pass)
+	coins_label.text = \"Coins \" + var_to_str(player.get_currency(\"coins\"))
+	bills_label.text = \"Bills \" + var_to_str(player.get_currency(\"bills\"))
+	player.currency_changed.connect(_currency_changed)
 	
-	bills_label.text = \"Bills \" + var_to_str(currency_handler.bills)
-	currency_handler.bills_changed.connect(func(_a, value):
-		bills_label.text = \"Bills \" + var_to_str(value)
-		pass)
-	pass
+
+func _currency_changed(currency_id: String, _previous: int, current: int):
+	var label_target: Label
+	match currency_id:
+		\"coins\":
+			label_target = coins_label;
+		\"bills\":
+			label_target = bills_label;
+		
+	label_target.text = currency_id.capitalize() + var_to_str(current)
+	
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oscxy"]
@@ -65,7 +69,6 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 shadow_opacity = 0.5
 directional_shadow_mode = 0
-metadata/_edit_lock_ = true
 
 [node name="Player" type="Node" parent="." unique_id=1580491148]
 script = ExtResource("2_gp3ee")
@@ -73,16 +76,71 @@ script = ExtResource("2_gp3ee")
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=780309891]
 transform = Transform3D(0.55556893, 0.54275066, -0.62989277, 0, 0.7575648, 0.65275997, 0.8314705, -0.36265317, 0.42087945, -11.673442, 14.147937, 8.5068245)
 
-[node name="Background" type="Node" parent="." unique_id=16629213]
-
-[node name="Floor" type="Sprite3D" parent="Background" unique_id=1539282428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
-material_override = ExtResource("1_vrr3t")
-cast_shadow = 0
-pixel_size = 1.0
-axis = 1
-texture = ExtResource("1_hqwdr")
+[node name="CurrencyDisplay" type="Control" parent="Player" unique_id=1824408860 node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = SubResource("GDScript_fuqhk")
+player = NodePath("..")
 metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/CurrencyDisplay" unique_id=1167709513]
+layout_mode = 0
+offset_right = 448.0
+offset_bottom = 104.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/CurrencyDisplay/MarginContainer" unique_id=1255097518]
+layout_mode = 2
+
+[node name="Coins" type="Panel" parent="Player/CurrencyDisplay/MarginContainer/HBoxContainer" unique_id=459675675]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_oscxy")
+
+[node name="Label" type="Label" parent="Player/CurrencyDisplay/MarginContainer/HBoxContainer/Coins" unique_id=1173998317]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 13.5
+offset_right = -16.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Coins 46"
+label_settings = SubResource("LabelSettings_fuqhk")
+vertical_alignment = 1
+
+[node name="Bills" type="Panel" parent="Player/CurrencyDisplay/MarginContainer/HBoxContainer" unique_id=986536912]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_oscxy")
+
+[node name="Label" type="Label" parent="Player/CurrencyDisplay/MarginContainer/HBoxContainer/Bills" unique_id=136732107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 13.5
+offset_right = -16.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Bils 34"
+label_settings = SubResource("LabelSettings_fuqhk")
+vertical_alignment = 1
 
 [node name="WorldManager" type="Node" parent="." unique_id=1909743692]
 
@@ -107,73 +165,18 @@ script = ExtResource("4_jxerj")
 [node name="PathwaysHandler" type="Node" parent="WorldManager/CityManager" unique_id=1358021100]
 script = ExtResource("5_ghvq8")
 
-[node name="StarterGui" type="CanvasLayer" parent="." unique_id=1460679728]
+[node name="Background" type="Node" parent="." unique_id=16629213]
 
-[node name="CurrencyDisplay" type="Control" parent="StarterGui" unique_id=1824408860 node_paths=PackedStringArray("player")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = SubResource("GDScript_fuqhk")
-player = NodePath("../../Player")
+[node name="Floor" type="Sprite3D" parent="Background" unique_id=1539282428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+material_override = ExtResource("1_vrr3t")
+cast_shadow = 0
+pixel_size = 1.0
+axis = 1
+texture = ExtResource("1_hqwdr")
 metadata/_edit_lock_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="StarterGui/CurrencyDisplay" unique_id=1167709513]
-layout_mode = 0
-offset_right = 448.0
-offset_bottom = 104.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="HBoxContainer" type="HBoxContainer" parent="StarterGui/CurrencyDisplay/MarginContainer" unique_id=1255097518]
-layout_mode = 2
-
-[node name="Coins" type="Panel" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer" unique_id=459675675]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_oscxy")
-
-[node name="Label" type="Label" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer/Coins" unique_id=1173998317]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 13.5
-offset_right = -16.0
-offset_bottom = -13.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Coins 46"
-label_settings = SubResource("LabelSettings_fuqhk")
-vertical_alignment = 1
-
-[node name="Bills" type="Panel" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer" unique_id=986536912]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_oscxy")
-
-[node name="Label" type="Label" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer/Bills" unique_id=136732107]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 13.5
-offset_right = -16.0
-offset_bottom = -13.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Bils 34"
-label_settings = SubResource("LabelSettings_fuqhk")
-vertical_alignment = 1
+[node name="StarterGui" type="CanvasLayer" parent="." unique_id=1460679728]
 
 [node name="ControlPanel" parent="StarterGui" unique_id=208419686 instance=ExtResource("8_oscxy")]
 visible = false
