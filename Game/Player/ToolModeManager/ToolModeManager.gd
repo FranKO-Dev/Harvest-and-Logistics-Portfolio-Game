@@ -1,8 +1,103 @@
 class_name ToolModeManager extends Node
+# -----------------------------------------------------------------------------
+#	ToolModeManager
+#
+#	This manager is the single authority responsible for activating and
+#	deactivating tool modes.
+#
+#	- Invariant:
+#	Only one ToolModeClass may be active at any given time.
+#
+#	- Why this exists:
+#	If multiple tool modes become active simultaneously, game behavior becomes
+#	unpredictable and difficult to debug. ToolModeManager guarantees that tool
+#	mode transitions happen safely and consistently.
+#
+#	WARNING:
+#	Activating or deactivating tool modes directly bypasses the manager and may
+#	leave multiple tool modes active at the same time, resulting in undefined
+#	behavior.
+#
+#	Rules:
+#	1.	Never call activate() or deactivate() on a ToolModeClass from outside
+#		ToolModeManager.
+#
+#	2.	Accessing tool properties and calling tool-specific methods is allowed.
+#
+#	3.	All tool mode activation, deactivation, and switching must go through
+#		ToolModeManager methods such as switch_tool_mode().
+# -----------------------------------------------------------------------------
 
-## Tool mode currently handled
+
+# Tool mode currently handled
 var current_tool_mode: ToolModeClass
-# Tool modes declaration
-var tool_modes: Dictionary[String, ToolModeClass] = {
-	"PlantingTool" : PlantingTool.new(),
+
+# Tool signals
+signal on_activate(tool_mode_name: String)
+signal on_deactivate(tool_mode_name: String)
+
+# Tool modes variable declaration, make sure it assing a new tool_mode set once.
+@onready var tool_modes: Dictionary[String, ToolModeClass] = {
+	"PlantingTool" : $PlantingTool,
 }
+
+
+# Setting up ToolModeManager
+func _ready() -> void:
+	_setup_tool_signals()
+	
+
+# Connects the signals from tool_modes and unifies them on on_activate and on_deactivate
+func _setup_tool_signals():
+	for tool_mode_name in tool_modes.keys():
+		var tool_mode: ToolModeClass = tool_modes[tool_mode_name]
+		# Emtting on_activate or on_deactivate whether if the tool_mode isActive or not
+		tool_mode.isActiveChanged.connect(func():
+			match tool_mode.isActive:
+				true:
+					on_activate.emit(tool_mode_name)
+				false:
+					on_deactivate.emit(tool_mode_name)
+			)
+	pass
+
+## Returns true of a tool name is registered in tool_modes
+func tool_mode_exists(tool_mode_name: String) -> bool:
+	return tool_modes.keys().has(tool_mode_name)
+
+## Returns a ToolModeClass registered in tool_modes safely. In case not found, it returns null.
+func get_tool_mode(tool_mode_name: String) -> ToolModeClass:
+	if tool_mode_exists(tool_mode_name) == false:
+		push_warning("Tool Mode '%s' doesn't exist in tool_modes. It must be registered."% tool_mode_name)
+		return null
+	return tool_modes[tool_mode_name]
+
+## Returns all the registered tool names in tool_modes.
+func get_tool_mode_names() -> Array[String]:
+	return tool_modes.keys().duplicate()
+
+## Switches the current tool mode to another tool_mode then activates it.
+## In case it's the same tool_mode as the current one, it will get activated safely.
+func switch_tool_mode(tool_mode_name: String):
+	# Getting new tool mode
+	var new_tool_mode: ToolModeClass = get_tool_mode(tool_mode_name)
+	# In case not found
+	if not new_tool_mode:
+		return
+	# In case is the same tool mode, then activate if deactivated.
+	if current_tool_mode == new_tool_mode:
+		if current_tool_mode:
+			current_tool_mode.activate()
+	else:
+		if current_tool_mode:
+			current_tool_mode.deactivate()
+		current_tool_mode = new_tool_mode
+		current_tool_mode.activate()
+	
+
+## Returns true if the current_tool_mode has been deactivated sucessfully or there is no tool_mode.
+## Otherwise if it was already deactivated returns false.
+func deactivate_current_tool_mode() -> bool:
+	if current_tool_mode:
+		return current_tool_mode.deactivate()
+	return true

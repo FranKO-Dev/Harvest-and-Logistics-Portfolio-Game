@@ -1,6 +1,6 @@
-extends Node3D
+class_name Game extends Node3D
 
-# Node that controls the city
+# Public references
 @export var city_manager: CityManager
 
 func _ready() -> void:

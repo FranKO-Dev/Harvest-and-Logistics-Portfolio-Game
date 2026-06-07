@@ -31,6 +31,11 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/scene_texture/plugin.cfg")
 
+[global_group]
+
+markets="Group of Market instances only"
+lands="Group of Land instances only"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
