@@ -18,23 +18,27 @@ func place_block(
 	block_index: Vector2, block_size: int, 
 	generated_block: Array[Array], _neighbors: Array[Vector2] = []) -> Array:
 	
-	var Block = Node3D.new(); var block_position = block_index * (block_size/2.0)
+	var offset = Vector2(0.5, block_size/2.0)
+	
+	# Empty Node to group all the objects inside of it
+	var Block = Node3D.new();
+	var block_position = block_index * (block_size) + offset
 	add_child(Block)
 	Block.position = Vector3(block_position.x, 0, block_position.y)
+	
 	
 	# List of generated markets on the block
 	var MarketArray: Array[Node3D] = []
 	
 	# Checking if the block is in front the Farmhouse, normally located in front of 0,0
 	if (block_index.y == 0):
-		place_road_block(self, Vector2(Block.position.x, -1), Vector2(block_size, 1))
+		place_road_block(self, Vector2(block_position.x, -offset.x), Vector2(block_size, 1))
 	
 	# Generating buildings
 	for x in range(block_size):
 		for y in range(block_size):
-			var local_position = Vector2(x - (block_size/2.0), y - (block_size/2.0))
-			var offset = Vector2(0.5, block_size/2.0)
-			var position = block_position + local_position + offset
+			var local_position = Vector2(x, y) - Vector2(block_size/2.0, block_size/2.0)
+			var position = local_position
 			
 			var is_building = generated_block[x][y] == " "
 			if is_building:
@@ -50,6 +54,7 @@ func place_block(
 			pass
 	return MarketArray
 
+# Places a decoration on a block
 func place_decoration(parent: Node3D, position: Vector2):
 	var object: Node3D
 	
@@ -69,7 +74,7 @@ func place_decoration(parent: Node3D, position: Vector2):
 func place_road_block(parent: Node, position: Vector2, block_size: Vector2):
 	for x in range(block_size.x):
 		for y in range(block_size.y):
-			var road_position = position + Vector2(x, y)
+			var road_position = position + Vector2(x, y) - block_size/2.0
 			place_road(parent, road_position)
 	pass
 

@@ -21,6 +21,7 @@ SceneRenderManager="*uid://b1ek1bdn6iio6"
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor]
 
