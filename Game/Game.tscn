@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dt13swqm7242k" path="res://Game/Player/ToolModeManager/ToolModeManager.gd" id="3_hmm1m"]
 [ext_resource type="Script" uid="uid://cr8jvlngweje3" path="res://Game/WorldManager/City/CityManager.gd" id="3_iv3md"]
 [ext_resource type="Script" uid="uid://b2bdigf12ir46" path="res://Game/WorldManager/Farmhouse/Farmhouse.gd" id="3_r0byk"]
-[ext_resource type="Script" uid="uid://64u3c83nmlnq" path="res://Game/WorldManager/Farmhouse/LandController/LandHandler.gd" id="4_gp3ee"]
+[ext_resource type="Script" uid="uid://64u3c83nmlnq" path="res://Game/WorldManager/LandController/LandHandler.gd" id="4_gp3ee"]
 [ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_hmm1m"]
 [ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/WorldManager/City/BlocksHandler.gd" id="4_jxerj"]
 [ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysHandler.gd" id="5_ghvq8"]
@@ -89,15 +89,11 @@ metadata/_custom_type_script = "uid://bnlpuysk4a1uy"
 
 [node name="WorldManager" type="Node" parent="." unique_id=1909743692]
 
-[node name="Farmhouse" type="Node3D" parent="WorldManager" unique_id=340583283 node_paths=PackedStringArray("land_handler")]
+[node name="Farmhouse" type="Node3D" parent="WorldManager" unique_id=340583283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 script = ExtResource("3_r0byk")
-land_handler = NodePath("LandHandler")
 
 [node name="FarmhouseModel" parent="WorldManager/Farmhouse" unique_id=88368066 instance=ExtResource("3_eqev2")]
-
-[node name="LandHandler" type="Node" parent="WorldManager/Farmhouse" unique_id=1230336965]
-script = ExtResource("4_gp3ee")
 
 [node name="CityManager" type="Node" parent="WorldManager" unique_id=1485239737 node_paths=PackedStringArray("blocks_handler", "pathways_handler")]
 script = ExtResource("3_iv3md")
@@ -109,6 +105,9 @@ script = ExtResource("4_jxerj")
 
 [node name="PathwaysHandler" type="Node" parent="WorldManager/CityManager" unique_id=1358021100]
 script = ExtResource("5_ghvq8")
+
+[node name="LandHandler" type="Node" parent="WorldManager" unique_id=1230336965]
+script = ExtResource("4_gp3ee")
 
 [node name="Background" type="Node" parent="." unique_id=16629213]
 
