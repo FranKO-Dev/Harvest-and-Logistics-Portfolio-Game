@@ -28,7 +28,6 @@ class_name ToolModeManager extends Node
 #		ToolModeManager methods such as switch_tool_mode().
 # -----------------------------------------------------------------------------
 
-
 # Tool mode currently handled
 var current_tool_mode: ToolModeClass
 

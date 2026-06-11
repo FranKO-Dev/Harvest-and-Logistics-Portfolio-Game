@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://64u3c83nmlnq" path="res://Game/WorldManager/LandController/LandHandler.gd" id="4_gp3ee"]
 [ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_hmm1m"]
 [ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/WorldManager/City/BlocksHandler.gd" id="4_jxerj"]
-[ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysHandler.gd" id="5_ghvq8"]
+[ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysHandler/PathwaysHandler.gd" id="5_ghvq8"]
 [ext_resource type="PackedScene" uid="uid://c07fnihro4xmj" path="res://Game/StarterGui/ControlPanel.tscn" id="8_oscxy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ghvq8"]
