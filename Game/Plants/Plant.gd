@@ -7,3 +7,5 @@ class_name Plant extends Resource
 @export var plant_stages: Array[PackedScene]
 # Price the plant will be sold
 @export var price: int = 1
+# Growing time required to advance to the next stage.
+@export var growth_time: int = 15
