@@ -1,9 +1,9 @@
-extends Resource
-class_name Plant
+class_name Plant extends Resource
 
-@export var plant_name: String = "noname"
+@export var plant_name: String = "plant-name"
 @export var plant_icon: Texture2D
 
 # Each defined plant stage must have a scene to show it
 @export var plant_stages: Array[PackedScene]
-@export var cost: int = 1
+# Price the plant will be sold
+@export var price: int = 1

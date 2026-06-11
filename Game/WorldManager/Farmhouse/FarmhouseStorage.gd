@@ -55,15 +55,15 @@ func get_progress_percent() -> float:
 func has_plant(plant: Plant) -> bool:
 	return plants.has(plant)
 	
-
+## Returns the ammout present in the storage of a plant
 func get_plant_amount(plant: Plant) -> int:
 	return plants.get(plant, 0)
 	
-
+## Returns the count of types of plants registered in the storage
 func get_unique_plant_count() -> int:
 	return plants.size()
 	
-
+## Returns a copy of the storage
 func get_all_plants() -> Dictionary:
 	return plants.duplicate(true)
 	
