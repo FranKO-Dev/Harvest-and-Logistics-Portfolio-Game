@@ -34,4 +34,5 @@ script = ExtResource("1_cx0tr")
 plant_name = "Wheat"
 plant_icon = SubResource("Texture2D_ynpj3")
 plant_stages = Array[PackedScene]([ExtResource("1_ipmmr"), ExtResource("2_m682k"), ExtResource("3_56x34"), ExtResource("4_ynpj3")])
+growth_time = 5
 metadata/_custom_type_script = "uid://bpuxwxkkslqjc"
