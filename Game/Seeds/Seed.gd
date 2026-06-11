@@ -1,4 +1,4 @@
-class_name Seed extends RefCounted
+class_name Seed extends Resource
 
 # Seed display data
 @export var seed_name: String = "seed-name"
