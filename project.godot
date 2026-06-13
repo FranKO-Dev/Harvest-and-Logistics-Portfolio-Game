@@ -37,6 +37,10 @@ enabled=PackedStringArray("res://addons/scene_texture/plugin.cfg")
 markets="Group of Market instances only"
 lands="Group of Land instances only"
 
+[layer_names]
+
+3d_physics/layer_2="lands"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

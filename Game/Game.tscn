@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dt13swqm7242k" path="res://Game/Player/ToolModeManager/ToolModeManager.gd" id="3_hmm1m"]
 [ext_resource type="Script" uid="uid://cr8jvlngweje3" path="res://Game/WorldManager/City/CityManager.gd" id="3_iv3md"]
 [ext_resource type="Script" uid="uid://b2bdigf12ir46" path="res://Game/WorldManager/Farmhouse/Farmhouse.gd" id="3_r0byk"]
-[ext_resource type="Script" uid="uid://64u3c83nmlnq" path="res://Game/WorldManager/LandController/LandHandler.gd" id="4_gp3ee"]
+[ext_resource type="Script" uid="uid://64u3c83nmlnq" path="res://Game/WorldManager/LandHandler/LandHandler.gd" id="4_gp3ee"]
 [ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_hmm1m"]
 [ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/WorldManager/City/BlocksHandler.gd" id="4_jxerj"]
 [ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysHandler/PathwaysHandler.gd" id="5_ghvq8"]

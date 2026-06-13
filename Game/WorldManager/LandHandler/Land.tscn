@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://msd3y6hpk873"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4g7l"]
+margin = 0.1
+size = Vector3(1, 0, 1)
+
+[node name="1" type="Area3D" unique_id=216744661 groups=["lands"]]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+metadata/current_stage = -1
+metadata/time_left = 0
+metadata/plant = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=334224102]
+shape = SubResource("BoxShape3D_x4g7l")
