@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kv4vcsey773o"]
 
 [ext_resource type="PackedScene" uid="uid://msd3y6hpk873" path="res://Game/WorldManager/LandHandler/Land.tscn" id="1_anyn0"]
-[ext_resource type="Material" uid="uid://bi21n40hbqlc5" path="res://Game/WorldManager/LandHandler/Materials/Land.tres" id="2_u8q2f"]
+[ext_resource type="Material" uid="uid://bi21n40hbqlc5" path="res://Objects/Materials/Land.tres" id="2_u8q2f"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_alate"]
 size = Vector2(3, 3)

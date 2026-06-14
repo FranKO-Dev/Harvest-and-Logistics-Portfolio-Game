@@ -12,6 +12,9 @@ const block_size: int = 3
 # Offset to start spawning land
 const offset: Vector2 = Vector2(0, -6)
 
+# Emitted after a land block is added, brings the land_index.
+signal land_block_added(land_index: Vector2)
+
 func _ready() -> void:
 	start()
 	
@@ -20,20 +23,22 @@ func _ready() -> void:
 func start():
 	_land_growing_component.start()
 	
-	spawn_land(Vector2(0, 0))
-	spawn_land(Vector2(1, 0)).get_children().any(func(child: Node):
+	add_land_block(Vector2(0, 0))
+	add_land_block(Vector2(1, 0)).get_children().any(func(child: Node):
 		if child.is_in_group("lands"):
 			plant_seed_on_land(child, preload("res://Game/Seeds/WheatSeed.tres"))
 		pass)
-	spawn_land(Vector2(0, -1))
+	add_land_block(Vector2(0, -1))
 	
 
 # Spawns a land in the specified index
-func spawn_land(land_index: Vector2) -> Node3D:
+func add_land_block(land_index: Vector2) -> Node3D:
 	var land_block: Node3D = land_block_prefab.instantiate()
 	land_block.position = Vector3(land_index.x, 0, land_index.y) * block_size
 	land_block.position += Vector3(offset.x, 0, offset.y)
 	add_child(land_block)
+	
+	land_block_added.emit(land_index)
 	return land_block
 	
 
