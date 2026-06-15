@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dt13swqm7242k" path="res://Game/Player/ToolModeManager/ToolModeManager.gd" id="3_hmm1m"]
 [ext_resource type="Script" uid="uid://cr8jvlngweje3" path="res://Game/WorldManager/City/CityManager.gd" id="3_iv3md"]
 [ext_resource type="Script" uid="uid://b2bdigf12ir46" path="res://Game/WorldManager/Farmhouse/Farmhouse.gd" id="3_r0byk"]
+[ext_resource type="Script" uid="uid://c6wqbx73sg4bn" path="res://Game/Player/PlayerCamera/PlayerCamera.gd" id="3_vl8r5"]
 [ext_resource type="Script" uid="uid://64u3c83nmlnq" path="res://Game/WorldManager/LandHandler/LandHandler.gd" id="4_gp3ee"]
 [ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_hmm1m"]
 [ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/WorldManager/City/BlocksHandler.gd" id="4_jxerj"]
@@ -81,9 +82,10 @@ script = ExtResource("2_gp3ee")
 game_root = NodePath("..")
 farmhouse = NodePath("../WorldManager/Farmhouse")
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=780309891]
+[node name="PlayerCamera" type="Camera3D" parent="Player" unique_id=780309891]
 transform = Transform3D(-0.9999905, 0.0037001988, -0.0023121473, 0, 0.52992034, 0.84804744, 0.004363198, 0.8480394, -0.52991533, 0, 5.604, -3.501)
 fov = 100.0
+script = ExtResource("3_vl8r5")
 
 [node name="ToolModeManager" type="Node" parent="Player" unique_id=2061564102]
 script = ExtResource("3_hmm1m")

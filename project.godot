@@ -37,6 +37,10 @@ enabled=PackedStringArray("res://addons/scene_texture/plugin.cfg")
 markets="Group of Market instances only"
 lands="Group of Land instances only"
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 3d_physics/layer_2="lands"
