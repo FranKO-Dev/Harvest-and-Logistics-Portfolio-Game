@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cnneribnhmj3x"]
+
+[ext_resource type="Script" uid="uid://blc5vroshl0ot" path="res://Game/Player/Player.gd" id="1_2nirr"]
+[ext_resource type="Script" uid="uid://c6wqbx73sg4bn" path="res://Game/Player/PlayerCamera/PlayerCamera.gd" id="2_kt3un"]
+[ext_resource type="Script" uid="uid://dt13swqm7242k" path="res://Game/Player/ToolModeManager/ToolModeManager.gd" id="3_o2hno"]
+[ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_65y41"]
+
+[node name="Player" type="Node" unique_id=2141064753 node_paths=PackedStringArray("game_root", "farmhouse")]
+script = ExtResource("1_2nirr")
+game_root = NodePath("")
+farmhouse = NodePath("")
+
+[node name="PlayerCamera" type="Camera3D" parent="." unique_id=1384572734]
+transform = Transform3D(-0.9999905, 0.0037001988, -0.0023121473, 0, 0.52992034, 0.84804744, 0.004363198, 0.8480394, -0.52991533, 0, 5.604, -3.501)
+fov = 100.0
+script = ExtResource("2_kt3un")
+
+[node name="ToolModeManager" type="Node" parent="." unique_id=865334189]
+script = ExtResource("3_o2hno")
+
+[node name="PlantingTool" type="Node" parent="ToolModeManager" unique_id=1178862506]
+script = ExtResource("4_65y41")
+metadata/_custom_type_script = "uid://bnlpuysk4a1uy"
