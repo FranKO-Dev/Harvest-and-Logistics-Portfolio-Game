@@ -6,7 +6,7 @@ var isActive: bool = false
 ## Emitted when the isActive state changes
 signal isActiveChanged
 
-var player_camera
+var player_camera: PlayerCamera
 
 ## Always run this super-class method as super() in the sub-class in case
 ## you want to overwrite this method.

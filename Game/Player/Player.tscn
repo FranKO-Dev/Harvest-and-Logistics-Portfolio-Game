@@ -5,10 +5,8 @@
 [ext_resource type="Script" uid="uid://dt13swqm7242k" path="res://Game/Player/ToolModeManager/ToolModeManager.gd" id="3_o2hno"]
 [ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_65y41"]
 
-[node name="Player" type="Node" unique_id=2141064753 node_paths=PackedStringArray("game_root", "farmhouse")]
+[node name="Player" type="Node" unique_id=2141064753]
 script = ExtResource("1_2nirr")
-game_root = NodePath("")
-farmhouse = NodePath("")
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1384572734]
 transform = Transform3D(-0.9999905, 0.0037001988, -0.0023121473, 0, 0.52992034, 0.84804744, 0.004363198, 0.8480394, -0.52991533, 0, 5.604, -3.501)
