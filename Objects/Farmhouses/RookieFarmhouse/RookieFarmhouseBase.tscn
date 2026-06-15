@@ -1,22 +1,14 @@
 [gd_scene format=3 uid="uid://dp3ddgu1oghxm"]
 
-[ext_resource type="Material" uid="uid://bi21n40hbqlc5" path="res://Objects/Materials/Land.tres" id="1_6jtws"]
 [ext_resource type="Material" uid="uid://dexlrm4vxbcoy" path="res://Objects/Farmhouses/Materials/RedBarn.tres" id="1_d424s"]
 [ext_resource type="Material" uid="uid://bfjbc1olcf213" path="res://Objects/Farmhouses/Materials/WhiteBarn.tres" id="2_6jtws"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_d424s"]
-size = Vector2(3, 3)
 
 [sub_resource type="PrismMesh" id="PrismMesh_k22c4"]
 size = Vector3(3.1, 1, 3.1)
 
 [node name="FarmhouseModel" type="Node3D" unique_id=88368066]
 
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=331851515]
-mesh = SubResource("PlaneMesh_d424s")
-surface_material_override/0 = ExtResource("1_6jtws")
-
-[node name="House" type="Node3D" parent="." unique_id=2035166428]
+[node name="House" type="Node3D" parent="." unique_id=1200732618]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="Body" type="CSGBox3D" parent="House" unique_id=809828331]

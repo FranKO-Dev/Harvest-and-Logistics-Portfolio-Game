@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_hmm1m"]
 [ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/WorldManager/City/BlocksHandler.gd" id="4_jxerj"]
 [ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysHandler/PathwaysHandler.gd" id="5_ghvq8"]
+[ext_resource type="Material" uid="uid://bi21n40hbqlc5" path="res://Objects/Materials/Land.tres" id="7_xnkgk"]
 [ext_resource type="PackedScene" uid="uid://c07fnihro4xmj" path="res://Game/StarterGui/ControlPanel.tscn" id="8_oscxy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ghvq8"]
@@ -25,6 +26,9 @@ sky_material = SubResource("ProceduralSkyMaterial_ghvq8")
 background_mode = 2
 sky = SubResource("Sky_fuqhk")
 tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vl8r5"]
+size = Vector2(3, 3)
 
 [sub_resource type="GDScript" id="GDScript_fuqhk"]
 resource_name = "CurrencyDisplay"
@@ -78,7 +82,8 @@ game_root = NodePath("..")
 farmhouse = NodePath("../WorldManager/Farmhouse")
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=780309891]
-transform = Transform3D(0.55556893, 0.54275066, -0.62989277, 0, 0.7575648, 0.65275997, 0.8314705, -0.36265317, 0.42087945, -11.673442, 14.147937, 8.5068245)
+transform = Transform3D(-0.9999905, 0.0037001988, -0.0023121473, 0, 0.52992034, 0.84804744, 0.004363198, 0.8480394, -0.52991533, 0, 5.604, -3.501)
+fov = 100.0
 
 [node name="ToolModeManager" type="Node" parent="Player" unique_id=2061564102]
 script = ExtResource("3_hmm1m")
@@ -94,6 +99,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 script = ExtResource("3_r0byk")
 
 [node name="FarmhouseModel" parent="WorldManager/Farmhouse" unique_id=88368066 instance=ExtResource("3_eqev2")]
+
+[node name="Floor" type="MeshInstance3D" parent="WorldManager/Farmhouse" unique_id=1826715176]
+mesh = SubResource("PlaneMesh_vl8r5")
+surface_material_override/0 = ExtResource("7_xnkgk")
 
 [node name="CityManager" type="Node" parent="WorldManager" unique_id=1485239737 node_paths=PackedStringArray("blocks_handler", "pathways_handler")]
 script = ExtResource("3_iv3md")
