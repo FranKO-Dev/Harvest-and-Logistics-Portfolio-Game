@@ -73,5 +73,55 @@ func remove_currency(currency_id: String, amount: int) -> void:
 func can_afford(currency_id: String, amount: int) -> bool:
 	return _currency_handler.can_afford(currency_id, amount)
 	
-# -----[[ INVENTORY API ]]-----
-# This part is meant to store and initalize the InventoryHandler along with public properties.
+# -----[[ SEED INVENTORY API ]]-----
+# This part is meant to store and initialize the SeedInventoryHandler
+# along with public properties.
+
+# Defining seed inventory handler
+var _seed_inventory_handler: SeedInventoryHandler = SeedInventoryHandler.new()
+
+## Returns true if a plant seed is found
+func has_seed(plant_seed: PlantSeed) -> bool:
+	return _seed_inventory_handler.has_seed(plant_seed)
+	
+
+## Returns the amount of a specific plant seed
+func get_seed_amount(plant_seed: PlantSeed) -> int:
+	return _seed_inventory_handler.get_plant_amount(plant_seed)
+	
+
+## Returns the count of unique plant seed types
+func get_unique_seed_count() -> int:
+	return _seed_inventory_handler.get_unique_plant_count()
+	
+
+## Returns a copy of all stored seeds
+func get_all_seeds() -> Dictionary:
+	return _seed_inventory_handler.get_all_plants()
+	
+
+## Adds seeds to the inventory
+func add_seed(plant_seed: PlantSeed, amount: int = 1) -> bool:
+	return _seed_inventory_handler.add_plant(plant_seed, amount)
+	
+
+## Removes seeds from the inventory.
+## Returns the actual amount removed.
+func remove_seed(plant_seed: PlantSeed, amount: int = 1) -> int:
+	return _seed_inventory_handler.remove_plant_seed(plant_seed, amount)
+	
+
+## Clears the inventory
+func clear_seed_inventory() -> void:
+	_seed_inventory_handler.clear()
+	
+
+## Returns true if the inventory is empty
+func is_seed_inventory_empty() -> bool:
+	return _seed_inventory_handler.is_empty()
+	
+
+## Returns the total number of seeds across all types
+func get_total_seed_count() -> int:
+	return _seed_inventory_handler.get_total_seed_count()
+	

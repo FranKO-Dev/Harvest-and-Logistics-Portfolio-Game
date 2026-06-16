@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysHandler/PathwaysHandler.gd" id="5_ghvq8"]
 [ext_resource type="Material" uid="uid://bi21n40hbqlc5" path="res://Objects/Materials/Land.tres" id="7_xnkgk"]
 [ext_resource type="PackedScene" uid="uid://c07fnihro4xmj" path="res://Game/StarterGui/ControlPanel.tscn" id="8_oscxy"]
+[ext_resource type="PackedScene" uid="uid://ckcosal3jvjc7" path="res://Game/StarterGui/CurrencyDisplay.tscn" id="13_hmm1m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ghvq8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,39 +28,6 @@ tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vl8r5"]
 size = Vector2(3, 3)
-
-[sub_resource type="GDScript" id="GDScript_fuqhk"]
-resource_name = "CurrencyDisplay"
-script/source = "extends Control
-
-@onready var coins_label = $MarginContainer/HBoxContainer/Coins/Label
-@onready var bills_label = $MarginContainer/HBoxContainer/Bills/Label
-
-@export var player: Player
-
-func _ready() -> void:
-	coins_label.text = \"Coins \" + var_to_str(player.get_currency(\"coins\"))
-	bills_label.text = \"Bills \" + var_to_str(player.get_currency(\"bills\"))
-	player.currency_changed.connect(_currency_changed)
-	
-
-func _currency_changed(currency_id: String, _previous: int, current: int):
-	var label_target: Label
-	match currency_id:
-		\"coins\":
-			label_target = coins_label;
-		\"bills\":
-			label_target = bills_label;
-		
-	label_target.text = currency_id.capitalize() + var_to_str(current)
-	
-"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oscxy"]
-bg_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_fuqhk"]
-font_size = 32
 
 [node name="Game" type="Node3D" unique_id=697521637 node_paths=PackedStringArray("city_manager", "land_handler")]
 script = ExtResource("1_ghvq8")
@@ -121,68 +89,5 @@ metadata/_edit_lock_ = true
 [node name="ControlPanel" parent="StarterGui" unique_id=208419686 instance=ExtResource("8_oscxy")]
 visible = false
 
-[node name="CurrencyDisplay" type="Control" parent="StarterGui" unique_id=1824408860 node_paths=PackedStringArray("player")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = SubResource("GDScript_fuqhk")
+[node name="CurrencyDisplay" parent="StarterGui" unique_id=1332540986 node_paths=PackedStringArray("player") instance=ExtResource("13_hmm1m")]
 player = NodePath("../../Player")
-metadata/_edit_lock_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="StarterGui/CurrencyDisplay" unique_id=1167709513]
-layout_mode = 0
-offset_right = 448.0
-offset_bottom = 104.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="HBoxContainer" type="HBoxContainer" parent="StarterGui/CurrencyDisplay/MarginContainer" unique_id=1255097518]
-layout_mode = 2
-
-[node name="Coins" type="Panel" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer" unique_id=459675675]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_oscxy")
-
-[node name="Label" type="Label" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer/Coins" unique_id=1173998317]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 13.5
-offset_right = -16.0
-offset_bottom = -13.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Coins 46"
-label_settings = SubResource("LabelSettings_fuqhk")
-vertical_alignment = 1
-
-[node name="Bills" type="Panel" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer" unique_id=986536912]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_oscxy")
-
-[node name="Label" type="Label" parent="StarterGui/CurrencyDisplay/MarginContainer/HBoxContainer/Bills" unique_id=136732107]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 13.5
-offset_right = -16.0
-offset_bottom = -13.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-text = "Bils 34"
-label_settings = SubResource("LabelSettings_fuqhk")
-vertical_alignment = 1
