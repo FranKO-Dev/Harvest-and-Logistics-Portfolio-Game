@@ -43,9 +43,10 @@ shadow_enabled = true
 shadow_opacity = 0.5
 directional_shadow_mode = 0
 
-[node name="Player" parent="." unique_id=2141064753 node_paths=PackedStringArray("game_root", "farmhouse") instance=ExtResource("2_r0byk")]
+[node name="Player" parent="." unique_id=2141064753 node_paths=PackedStringArray("game_root", "farmhouse", "land_handler") instance=ExtResource("2_r0byk")]
 game_root = NodePath("..")
 farmhouse = NodePath("../WorldManager/Farmhouse")
+land_handler = NodePath("../WorldManager/LandHandler")
 
 [node name="WorldManager" type="Node" parent="." unique_id=1909743692]
 

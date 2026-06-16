@@ -26,7 +26,7 @@ func start():
 	add_land_block(Vector2(0, 0))
 	add_land_block(Vector2(1, 0)).get_children().any(func(child: Node):
 		if child.is_in_group("lands"):
-			plant_seed_on_land(child, preload("res://Game/Seeds/WheatSeed.tres"))
+			spawn_seed_on_land(child, preload("res://Game/Seeds/WheatSeed.tres"))
 		pass)
 	add_land_block(Vector2(0, -1))
 	
@@ -42,8 +42,8 @@ func add_land_block(land_index: Vector2) -> Node3D:
 	return land_block
 	
 
-## Plants a seed on a land safely, returning status codes for error checking.
+## Spawn a seed on a land safely, returning status codes for error checking.
 ## If success, the status code returned is 0 which is same a OK.
-func plant_seed_on_land(land: Node3D, plant_seed: PlantSeed) -> Error:
-	return _land_growing_component.plant_seed_on_land(land, plant_seed)
+func spawn_seed_on_land(land: Node3D, plant_seed: PlantSeed) -> Error:
+	return _land_growing_component.spawn_seed_on_land(land, plant_seed)
 	

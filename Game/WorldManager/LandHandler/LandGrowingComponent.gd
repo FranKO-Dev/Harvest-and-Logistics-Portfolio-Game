@@ -41,25 +41,25 @@ func start_growing_timer():
 	Engine.get_main_loop().current_scene.add_child.call_deferred(growing_timer)
 	
 
-## Plants a seed on a land safely, returning status codes for error checking.
+## Spawns a seed on a land safely, returning status codes for error checking.
 ## If success, the status code returned is 0 or OK.
-func plant_seed_on_land(land: Node3D, plant_seed: PlantSeed) -> Error:
+func spawn_seed_on_land(land: Node3D, plant_seed: PlantSeed) -> Error:
 	if not land.is_in_group("lands"):
 		return ERR_INVALID_PARAMETER
 	if plant_seed.plant == null:
 		return ERR_INVALID_DATA
 	if not is_land_empty(land):
 		return ERR_UNAVAILABLE
-	# Planting on land after checking
-	plant_on_land(land, plant_seed.plant)
+	# Spawning a plant on land after checking
+	spawn_plant_on_land(land, plant_seed.plant)
 	return OK
 
 ## Returns true if a land has no plant in it, otherwise returns false.
 func is_land_empty(land: Node3D):
 	return not (growing.has(land) or for_harvest.has(land) or growing_time.has(land))
 
-## Plants a plant on a land, always check with is_land_empty() before running this function.
-func plant_on_land(land: Node3D, plant: Plant):
+## Spawns a plant on a land, always check with is_land_empty() before running this function.
+func spawn_plant_on_land(land: Node3D, plant: Plant):
 	if not land or not plant:
 		push_error("Land and Plant are required.")
 		return
