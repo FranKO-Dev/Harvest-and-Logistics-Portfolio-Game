@@ -61,9 +61,10 @@ bg_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_fuqhk"]
 font_size = 32
 
-[node name="Game" type="Node3D" unique_id=697521637 node_paths=PackedStringArray("city_manager")]
+[node name="Game" type="Node3D" unique_id=697521637 node_paths=PackedStringArray("city_manager", "land_handler")]
 script = ExtResource("1_ghvq8")
 city_manager = NodePath("WorldManager/CityManager")
+land_handler = NodePath("WorldManager/LandHandler")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1004974953]
 environment = SubResource("Environment_oscxy")

@@ -2,7 +2,7 @@ class_name Player extends Node
 
 @export var game_root: Game
 @export var farmhouse: Farmhouse
-
+@onready var player_camera: PlayerCamera = $PlayerCamera
 
 func _ready() -> void:
 	_setup_tool_mode_manager()

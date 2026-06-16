@@ -26,7 +26,7 @@ var black_registry: Dictionary[Vector2, bool] = {}
 func _ready() -> void:
 	pass
 	
-func start_city():
+func start():
 	if not is_node_ready():	await ready
 	generate_block(Vector2(0, 0))
 	generate_block(Vector2(-1, 0))

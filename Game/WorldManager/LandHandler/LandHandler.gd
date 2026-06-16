@@ -16,7 +16,7 @@ const offset: Vector2 = Vector2(0, -6)
 signal land_block_added(land_index: Vector2)
 
 func _ready() -> void:
-	start()
+	pass
 	
 
 # Starts the land
