@@ -74,3 +74,9 @@ func get_total_seed_count() -> int:
 	for amount in seeds.values():
 		total += amount
 	return total
+
+## Overwrites the seeds dictionary for a new one
+func overwrite_seeds(new_seeds: Dictionary[PlantSeed, int]):
+	seeds = new_seeds
+	inventory_changed.emit()
+	

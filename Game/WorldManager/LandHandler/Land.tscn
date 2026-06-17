@@ -10,7 +10,6 @@ collision_mask = 0
 monitoring = false
 metadata/current_stage = -1
 metadata/time_left = 0
-metadata/plant = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=334224102]
 shape = SubResource("BoxShape3D_x4g7l")

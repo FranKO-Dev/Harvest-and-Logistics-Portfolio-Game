@@ -6,6 +6,7 @@ extends Node
 @export var land_handler: LandHandler
 
 @onready var player_camera: PlayerCamera = $PlayerCamera
+@export var use_testing: bool
 
 func _ready() -> void:
 	_setup_tool_mode_manager()
@@ -23,10 +24,21 @@ func _ready() -> void:
 signal on_tool_mode_activate(tool_mode_name: String)
 signal on_tool_mode_deactivate(tool_mode_name: String)
 
+@export_group("Tool Mode Manager")
+## Set use_testing to true to test.
+@export var use_testing_tool_on_ready: bool = false
+@export var testing_tool: String
+
 ## Setups connects for tool manager
 func _setup_tool_mode_manager():
 	tool_mode_manager.on_activate.connect(on_tool_mode_activate.emit)
 	tool_mode_manager.on_deactivate.connect(on_tool_mode_deactivate.emit)
+	
+	if use_testing and use_testing_tool_on_ready and testing_tool:
+		# Using testing tool
+		push_warning("Using testing_tool for ToolModeManager")
+		activate_tool_mode(testing_tool)
+	
 
 ## Activates a tool mode from the specified tool_mode_name.
 func activate_tool_mode(tool_mode_name: String):
@@ -86,6 +98,12 @@ func can_afford(currency_id: String, amount: int) -> bool:
 # Defining seed inventory handler
 var _seed_inventory_handler: SeedInventoryHandler = SeedInventoryHandler.new()
 
+@export_group("Seed Inventory")
+## Data that will be used instead of seeds if needed for testing.
+## Set use_testing to true to test.
+@export var testing_data: Dictionary[PlantSeed, int] = {}
+@export var use_testing_data: bool = false
+
 # Seed inventory related signals
 signal seed_inventory_changed
 signal seed_added(seed: PlantSeed, amount: int, new_total: int)
@@ -98,6 +116,12 @@ func _setup_seed_inventory_handler() -> void:
 	_seed_inventory_handler.seed_added.connect(seed_added.emit)
 	_seed_inventory_handler.seed_removed.connect(seed_removed.emit)
 	_seed_inventory_handler.inventory_cleared.connect(seed_inventory_cleared.emit)
+	
+	if use_testing and use_testing_data:
+		# Using testing data
+		push_warning("Overwritting for _seed_inventory_handler.seeds")
+		seed_inventory_overwrite(testing_data)
+	
 
 ## Returns true if a plant seed is found
 func has_seed(plant_seed: PlantSeed) -> bool:
@@ -136,6 +160,9 @@ func is_seed_inventory_empty() -> bool:
 func get_total_seed_count() -> int:
 	return _seed_inventory_handler.get_total_seed_count()
 	
+## Overwrites the seeds dictionary for a new one
+func seed_inventory_overwrite(new_seeds: Dictionary[PlantSeed, int]):
+	_seed_inventory_handler.overwrite_seeds(new_seeds)
 
 #endregion
 
