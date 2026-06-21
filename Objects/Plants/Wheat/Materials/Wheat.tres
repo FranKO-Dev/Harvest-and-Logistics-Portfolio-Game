@@ -1,5 +1,13 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cvg8dqse2ybq3"]
 
+[ext_resource type="Texture2D" uid="uid://7dn702tigb76" path="res://Objects/Plants/Wheat/Textures/Wheat0.png" id="1_20vq0"]
+
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.1
+alpha_antialiasing_mode = 0
+cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0.7859693, 0.46306932, 1.92523e-07, 1)
+albedo_texture = ExtResource("1_20vq0")
+texture_filter = 0
+texture_repeat = false

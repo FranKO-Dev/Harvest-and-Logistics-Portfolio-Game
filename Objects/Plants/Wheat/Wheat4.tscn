@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://brmktig2uhtlv"]
+[gd_scene format=3 uid="uid://dyl5f40uf2q82"]
 
-[ext_resource type="ArrayMesh" uid="uid://bssvi0kc0jhss" path="res://Objects/Plants/Models/CropPlant.tres" id="1_povbv"]
-[ext_resource type="Texture2D" uid="uid://d2ve807leydra" path="res://Objects/Plants/Wheat/Textures/Wheat3.png" id="2_p6dlh"]
+[ext_resource type="ArrayMesh" uid="uid://bssvi0kc0jhss" path="res://Objects/Plants/Models/CropPlant.tres" id="1_cprdl"]
+[ext_resource type="Texture2D" uid="uid://sd4p6vxprnk2" path="res://Objects/Plants/Wheat/Textures/Wheat4.png" id="2_cprdl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vas7l"]
 transparency = 2
@@ -9,7 +9,7 @@ alpha_scissor_threshold = 0.1
 alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
-albedo_texture = ExtResource("2_p6dlh")
+albedo_texture = ExtResource("2_cprdl")
 texture_filter = 0
 texture_repeat = false
 
@@ -17,5 +17,5 @@ texture_repeat = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=463496834]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("1_povbv")
+mesh = ExtResource("1_cprdl")
 surface_material_override/0 = SubResource("StandardMaterial3D_vas7l")

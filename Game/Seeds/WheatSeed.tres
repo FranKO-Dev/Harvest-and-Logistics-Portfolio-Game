@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Seed" format=3 uid="uid://cclp785usti2h"]
+[gd_resource type="Resource" script_class="PlantSeed" format=3 uid="uid://cclp785usti2h"]
 
 [ext_resource type="Script" uid="uid://dh5upjogn16yb" path="res://Game/Seeds/PlantSeed.gd" id="1_d8eyf"]
 [ext_resource type="Resource" uid="uid://ck2wmygixb58j" path="res://Game/Plants/Wheat.tres" id="1_yeyr2"]
+[ext_resource type="Texture2D" uid="uid://dr5jaetvcs88p" path="res://Objects/Plants/Wheat/Textures/WheatSeedIcon.png" id="3_bnm03"]
 
 [resource]
 script = ExtResource("1_d8eyf")
 seed_name = "Wheat Seeds"
+seed_icon = ExtResource("3_bnm03")
 plant = ExtResource("1_yeyr2")
 metadata/_custom_type_script = "uid://dh5upjogn16yb"
