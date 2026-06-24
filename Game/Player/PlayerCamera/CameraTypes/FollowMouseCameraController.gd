@@ -6,8 +6,11 @@ var current_touch_position = Vector2.ZERO
 # Camera's viewport
 var viewport: Viewport
 
+# Screen position ratio the mouse can start moving
 const minimum_ratio = 0.5
-
+# Deadzone ratio to avoid zero division in the calculations
+const deadzone = 0.0001
+	
 # Maximum camera velocity in metters/second
 const max_camera_velocity: float = 15.0
 
@@ -16,8 +19,16 @@ func _on_activated():
 	pass
 
 func _camera_process(delta: float):
+	# Stop if the mouse out of viewport's bounds
+	if not is_mouse_in_bounds():
+		return
+	
 	var mouse_position_ratio = get_mouse_position_ratio()
 	var camera_step = Vector2.ZERO
+	
+	# Deadzone ratio to avoid zero division in the calculations
+	if mouse_position_ratio.abs().x < deadzone and mouse_position_ratio.abs().y < deadzone:
+		return
 	
 	# Handling X
 	if mouse_position_ratio.x < 0.0:
@@ -32,7 +43,17 @@ func _camera_process(delta: float):
 		camera_step.y =  maxf(mouse_position_ratio.y, minimum_ratio)
 	
 	# If absolute direction is minimum_ratio or less, then truncating to 0.0
-	camera_step -= Vector2(minimum_ratio, minimum_ratio) * (mouse_position_ratio/mouse_position_ratio.abs())
+	var abs_ratio = mouse_position_ratio.abs()
+	if abs_ratio.x > deadzone:
+		camera_step.x -= minimum_ratio * (mouse_position_ratio.x / abs_ratio.x)
+	else:
+		camera_step.x = 0.0
+
+	if abs_ratio.y > deadzone:
+		camera_step.y -= minimum_ratio * (mouse_position_ratio.y / abs_ratio.y)
+	else:
+		camera_step.y = 0.0
+
 	# If absolute direction is between 1.0 and minimum ratio, then normalize between 1.0 and 0.0.
 	camera_step /= Vector2(1.0 - minimum_ratio, 1.0 - minimum_ratio)
 	
@@ -40,7 +61,7 @@ func _camera_process(delta: float):
 	
 
 
-## Returns the mouse position clamped to the bounds of the viewport
+## Returns the mouse position clamped to the bounds of the viewport.
 func get_mouse_position_in_bounds() -> Vector2:
 	var viewport_size = viewport.get_visible_rect().size
 	var mouse_position = viewport.get_mouse_position()
@@ -60,3 +81,7 @@ func get_mouse_position_ratio():
 	mouse_position *= 2.0
 	mouse_position.y = -mouse_position.y
 	return mouse_position
+
+## Returns true if the mouse is in the viewport bounds.
+func is_mouse_in_bounds() -> bool:
+	return get_mouse_position_in_bounds() == viewport.get_mouse_position()
