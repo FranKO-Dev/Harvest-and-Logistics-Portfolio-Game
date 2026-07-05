@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Plant" format=3 uid="uid://ck2wmygixb58j"]
 
-[ext_resource type="Texture2D" uid="uid://dr5jaetvcs88p" path="res://Objects/Plants/Wheat/Textures/WheatSeedIcon.png" id="1_56x34"]
+[ext_resource type="Texture2D" uid="uid://s0d1du0m33im" path="res://Objects/Plants/Wheat/Textures/WheatPlantIcon.svg" id="1_56x34"]
 [ext_resource type="Script" uid="uid://bpuxwxkkslqjc" path="res://Game/Plants/Plant.gd" id="1_cx0tr"]
 [ext_resource type="PackedScene" uid="uid://bd8sa73nrang6" path="res://Objects/Plants/Wheat/Wheat0.tscn" id="1_ipmmr"]
 [ext_resource type="PackedScene" uid="uid://c0cfgxqklerpf" path="res://Objects/Plants/Wheat/Wheat1.tscn" id="2_m682k"]

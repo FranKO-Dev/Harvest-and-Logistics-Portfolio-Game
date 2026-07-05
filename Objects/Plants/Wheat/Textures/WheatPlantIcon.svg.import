@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr5jaetvcs88p"
-path="res://.godot/imported/WheatSeedIcon.png-bfc9d0383d9f1eea43e94999dee3d416.ctex"
+uid="uid://s0d1du0m33im"
+path="res://.godot/imported/WheatPlantIcon.svg-20b08f0679863d5e43860d3857d96751.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Plants/Wheat/Textures/WheatSeedIcon.png"
-dest_files=["res://.godot/imported/WheatSeedIcon.png-bfc9d0383d9f1eea43e94999dee3d416.ctex"]
+source_file="res://Objects/Plants/Wheat/Textures/WheatPlantIcon.svg"
+dest_files=["res://.godot/imported/WheatPlantIcon.svg-20b08f0679863d5e43860d3857d96751.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

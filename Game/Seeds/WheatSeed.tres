@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dh5upjogn16yb" path="res://Game/Seeds/PlantSeed.gd" id="1_d8eyf"]
 [ext_resource type="Resource" uid="uid://ck2wmygixb58j" path="res://Game/Plants/Wheat.tres" id="1_yeyr2"]
-[ext_resource type="Texture2D" uid="uid://dr5jaetvcs88p" path="res://Objects/Plants/Wheat/Textures/WheatSeedIcon.png" id="3_bnm03"]
+[ext_resource type="Texture2D" uid="uid://dpgf2yr3a7voo" path="res://Objects/Plants/Wheat/Textures/WheatSeedIcon.svg" id="3_bnm03"]
 
 [resource]
 script = ExtResource("1_d8eyf")
