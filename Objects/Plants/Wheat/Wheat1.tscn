@@ -1,21 +1,16 @@
 [gd_scene format=3 uid="uid://c0cfgxqklerpf"]
 
-[ext_resource type="ArrayMesh" uid="uid://bssvi0kc0jhss" path="res://Objects/Plants/Models/CropPlant.tres" id="1_uha78"]
-[ext_resource type="Texture2D" uid="uid://47n1hl4ogdx7" path="res://Objects/Plants/Wheat/Textures/Wheat1.png" id="2_aoe8y"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoe8y"]
-transparency = 2
-alpha_scissor_threshold = 0.1
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("2_aoe8y")
-texture_filter = 0
-texture_repeat = false
+[ext_resource type="ArrayMesh" uid="uid://dh660hbl1vcds" path="res://Objects/Plants/Wheat/Models/GerminatedWheatSeed.obj" id="1_uha78"]
+[ext_resource type="ArrayMesh" uid="uid://dowe2opuraum3" path="res://Objects/Plants/Wheat/Models/GerminatedWheatPlant.obj" id="2_aoe8y"]
+[ext_resource type="Material" uid="uid://bhhqb451jq3y2" path="res://Objects/Plants/Wheat/Materials/WheatSeeds.tres" id="2_s51u5"]
+[ext_resource type="Material" uid="uid://ckri3xqmijist" path="res://Objects/Plants/Wheat/Materials/WheatPlants.tres" id="4_s51u5"]
 
 [node name="Wheat" type="Node3D" unique_id=904830315]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1496544691]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="Seeds" type="MeshInstance3D" parent="." unique_id=1496544691]
 mesh = ExtResource("1_uha78")
-surface_material_override/0 = SubResource("StandardMaterial3D_aoe8y")
+surface_material_override/0 = ExtResource("2_s51u5")
+
+[node name="Plants" type="MeshInstance3D" parent="Seeds" unique_id=1706007355]
+mesh = ExtResource("2_aoe8y")
+surface_material_override/0 = ExtResource("4_s51u5")

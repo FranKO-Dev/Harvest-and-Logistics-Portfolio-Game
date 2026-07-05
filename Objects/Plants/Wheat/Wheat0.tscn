@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://bd8sa73nrang6"]
 
-[ext_resource type="ArrayMesh" uid="uid://bssvi0kc0jhss" path="res://Objects/Plants/Models/CropPlant.tres" id="1_52muf"]
-[ext_resource type="Material" uid="uid://cvg8dqse2ybq3" path="res://Objects/Plants/Wheat/Materials/Wheat.tres" id="2_v75a7"]
+[ext_resource type="ArrayMesh" uid="uid://bjn4r6vi4jy6x" path="res://Objects/Plants/Wheat/Models/WheatSeed.obj" id="1_52muf"]
+[ext_resource type="Material" uid="uid://bhhqb451jq3y2" path="res://Objects/Plants/Wheat/Materials/WheatSeeds.tres" id="2_v75a7"]
 
 [node name="Wheat" type="Node3D" unique_id=904830315]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=621292825]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="Seeds" type="MeshInstance3D" parent="." unique_id=621292825]
 mesh = ExtResource("1_52muf")
 surface_material_override/0 = ExtResource("2_v75a7")

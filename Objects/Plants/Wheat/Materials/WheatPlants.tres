@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ckri3xqmijist"]
+
+[ext_resource type="Shader" uid="uid://cqsfimrt7ih26" path="res://addons/hypercasualGradientShader/shaders/hypercasual.gdshader" id="1_r6q5s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_r6q5s")
+shader_parameter/useWorldSpace = false
+shader_parameter/gradientOffset = 0.0
+shader_parameter/gradientSize = 1.0
+shader_parameter/blendSmoothness = 0.5
+shader_parameter/colorTop = Color(0.11372549, 0.7372549, 0.22745098, 1)
+shader_parameter/colorBottom = Color(0, 0.39607844, 0.22745098, 1)
+shader_parameter/colorFrontTop = Color(0.11372549, 0.7372549, 0.22745098, 1)
+shader_parameter/colorFrontBottom = Color(0, 0.39607844, 0.22745098, 1)
+shader_parameter/colorBackTop = Color(0.11372549, 0.7372549, 0.22745098, 1)
+shader_parameter/colorBackBottom = Color(0, 0.39607844, 0.22745098, 1)
+shader_parameter/colorLeftTop = Color(0.11372549, 0.7372549, 0.22745098, 1)
+shader_parameter/colorLeftBottom = Color(0, 0.39607844, 0.22745098, 1)
+shader_parameter/colorRightTop = Color(0.11372549, 0.7372549, 0.22745098, 1)
+shader_parameter/colorRightBottom = Color(0, 0.39607844, 0.22745098, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0

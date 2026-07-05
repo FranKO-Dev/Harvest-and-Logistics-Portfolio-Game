@@ -1,21 +1,11 @@
 [gd_scene format=3 uid="uid://dy722i5ys7rov"]
 
-[ext_resource type="ArrayMesh" uid="uid://bssvi0kc0jhss" path="res://Objects/Plants/Models/CropPlant.tres" id="1_l6qwd"]
-[ext_resource type="Texture2D" uid="uid://crwfuix31231i" path="res://Objects/Plants/Wheat/Textures/Wheat2.png" id="2_l6qwd"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j17mb"]
-transparency = 2
-alpha_scissor_threshold = 0.1
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("2_l6qwd")
-texture_filter = 0
-texture_repeat = false
+[ext_resource type="ArrayMesh" uid="uid://iqfmqg5728uh" path="res://Objects/Plants/Wheat/Models/GrownWheat.obj" id="1_pxhiu"]
+[ext_resource type="Material" uid="uid://ckri3xqmijist" path="res://Objects/Plants/Wheat/Materials/WheatPlants.tres" id="2_l6qwd"]
 
 [node name="Wheat" type="Node3D" unique_id=904830315]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=474927164]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("1_l6qwd")
-surface_material_override/0 = SubResource("StandardMaterial3D_j17mb")
+[node name="Plants" type="MeshInstance3D" parent="." unique_id=474927164]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1_pxhiu")
+surface_material_override/0 = ExtResource("2_l6qwd")

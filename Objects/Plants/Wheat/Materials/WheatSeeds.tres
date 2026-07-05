@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bhhqb451jq3y2"]
+
+[ext_resource type="Shader" uid="uid://b8xw8cmhyyfc1" path="res://addons/hypercasualGradientShader/shaders/hypercasualSolid.gdshader" id="1_vk7yf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vk7yf")
+shader_parameter/color = Color(0.87058824, 0.80784315, 0.22745098, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
