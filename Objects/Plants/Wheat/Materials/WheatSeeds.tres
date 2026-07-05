@@ -5,7 +5,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_vk7yf")
-shader_parameter/color = Color(0.87058824, 0.80784315, 0.22745098, 1)
+shader_parameter/color = Color(0.9137255, 0.5568628, 0.15294118, 1)
 shader_parameter/useTexture = false
 shader_parameter/deband = true
 shader_parameter/debandDepth = 256.0

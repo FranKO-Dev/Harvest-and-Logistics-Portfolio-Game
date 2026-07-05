@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brmktig2uhtlv"]
 
 [ext_resource type="ArrayMesh" uid="uid://iqfmqg5728uh" path="res://Objects/Plants/Wheat/Models/GrownWheat.obj" id="1_p8qds"]
-[ext_resource type="Material" uid="uid://ckri3xqmijist" path="res://Objects/Plants/Wheat/Materials/WheatPlants.tres" id="2_povbv"]
+[ext_resource type="Material" uid="uid://bncej1av8u8g8" path="res://Objects/Plants/Wheat/Materials/WheatMiddlePlants.tres" id="2_povbv"]
 
 [node name="Wheat" type="Node3D" unique_id=904830315]
 
