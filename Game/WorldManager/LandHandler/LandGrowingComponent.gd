@@ -113,6 +113,7 @@ func _on_timer_timeout():
 func clear_plant_render(land: Node3D):
 	var render = land.get_node_or_null("PlantStageRenderInstance")
 	if render:
+		render.name = "_"
 		render.queue_free()
 		
 
