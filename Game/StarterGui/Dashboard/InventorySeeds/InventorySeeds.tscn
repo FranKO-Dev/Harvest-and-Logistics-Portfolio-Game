@@ -1,0 +1,360 @@
+[gd_scene format=3 uid="uid://curvty0w3kmmt"]
+
+[ext_resource type="Texture2D" uid="uid://d0vgim6sw1fv8" path="res://addons/kenney_ui-pack/Vector/Grey/button_square_depth_flat.svg" id="1_5eeck"]
+[ext_resource type="Texture2D" uid="uid://cb7iwauajwhth" path="res://addons/kenney_ui-pack/Vector/Grey/button_square_flat.svg" id="2_ypll3"]
+
+[node name="InventorySeeds" type="NinePatchRect" unique_id=77414631]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5eeck")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 10
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=24718959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=140283850]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer" unique_id=1714315028]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="ItemsGrid" type="HFlowContainer" parent="MarginContainer/HBoxContainer/ScrollContainer" unique_id=377395736]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1377219792]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=119157098]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=644786254]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=824619646]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=327600110]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=2111060554]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect7" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=173025801]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect8" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=294004053]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect9" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1917837731]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect10" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1443870571]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect11" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1320762417]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect12" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1085459316]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect13" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=2079870105]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect14" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=608017040]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect21" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1527749351]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect22" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=703644604]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect23" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=367672811]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect24" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1362263894]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect25" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=454748144]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect26" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1364322930]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect27" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1716761601]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect28" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1059383274]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect29" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1034458976]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect30" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=195776352]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect31" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1049914956]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect32" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1562929951]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect33" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=28777744]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect34" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=979083694]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect35" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=639233056]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect36" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=2132851509]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect37" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1586656890]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect38" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1098632900]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect39" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=759383464]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect40" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=781441828]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect41" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=235430308]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect42" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=2107911892]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect43" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1420552315]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect44" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=547700987]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect45" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=77793342]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect46" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1611746643]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect47" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=460554946]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect48" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=822273380]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect49" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=347218686]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect50" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=259918514]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect51" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1254585642]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect52" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=472878862]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect53" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=732058763]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect54" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1035740941]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect55" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=32442195]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect56" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1618897924]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect57" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=761751944]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect58" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1353837706]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect59" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=92885512]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect60" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=138365276]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect61" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=752499239]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect62" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1931263132]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect15" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1215347797]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect16" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=865083028]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect17" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1232937430]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect18" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=458795689]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect19" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=599256695]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="TextureRect20" type="TextureRect" parent="MarginContainer/HBoxContainer/ScrollContainer/ItemsGrid" unique_id=1184211115]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_ypll3")
+
+[node name="ItemInfo" type="NinePatchRect" parent="MarginContainer/HBoxContainer" unique_id=1717755493]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+texture = ExtResource("1_5eeck")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 10
