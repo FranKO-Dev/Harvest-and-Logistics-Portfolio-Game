@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0tym0q2bmie0" path="res://addons/kenney_ui-pack/Vector/Grey/button_rectangle_depth_flat.svg" id="1_p152o"]
 [ext_resource type="Texture2D" uid="uid://cnxhj8wgh6c84" path="res://addons/kenney_ui-pack/Vector/Blue/button_rectangle_depth_gradient.svg" id="2_lgf2l"]
 [ext_resource type="Texture2D" uid="uid://d0vgim6sw1fv8" path="res://addons/kenney_ui-pack/Vector/Grey/button_square_depth_flat.svg" id="3_2aru7"]
-[ext_resource type="PackedScene" uid="uid://curvty0w3kmmt" path="res://Game/StarterGui/Dashboard/InventorySeeds/InventorySeeds.tscn" id="3_p152o"]
+[ext_resource type="PackedScene" uid="uid://curvty0w3kmmt" path="res://Game/StarterGui/ControlPanel/Dashboard/InventorySeeds/InventorySeeds.tscn" id="3_p152o"]
 [ext_resource type="Texture2D" uid="uid://cc7ecmx8wuh6v" path="res://addons/kenney_ui-pack/Vector/Grey/button_round_flat.svg" id="5_wbyh1"]
 [ext_resource type="Texture2D" uid="uid://o64dgj2gjrn4" path="res://addons/kenney_ui-pack/Vector/Grey/button_round_line.svg" id="6_tlqav"]
 [ext_resource type="Texture2D" uid="uid://cfr1s2dpukthv" path="res://addons/kenney_ui-pack/Vector/Grey/icon_cross.svg" id="7_yf55n"]
@@ -40,9 +40,10 @@ layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="Container" unique_id=223457306]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.83100003
+offset_bottom = 0.10598755
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_unselected_color = Color(0.37111905, 0.37111905, 0.37111905, 1)

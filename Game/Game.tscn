@@ -11,8 +11,8 @@
 [ext_resource type="Script" uid="uid://bbrdjhydfno0b" path="res://Game/WorldManager/City/BlocksHandler.gd" id="4_jxerj"]
 [ext_resource type="Script" uid="uid://3x81e0u41182" path="res://Game/WorldManager/City/PathwaysHandler/PathwaysHandler.gd" id="5_ghvq8"]
 [ext_resource type="Material" uid="uid://bi21n40hbqlc5" path="res://Objects/Materials/Land.tres" id="7_xnkgk"]
-[ext_resource type="PackedScene" uid="uid://c07fnihro4xmj" path="res://Game/StarterGui/ControlPanel.tscn" id="8_oscxy"]
-[ext_resource type="PackedScene" uid="uid://ckcosal3jvjc7" path="res://Game/StarterGui/CurrencyDisplay.tscn" id="13_hmm1m"]
+[ext_resource type="PackedScene" uid="uid://c07fnihro4xmj" path="res://Game/StarterGui/ControlPanel/ControlPanel.tscn" id="8_oscxy"]
+[ext_resource type="PackedScene" uid="uid://ckcosal3jvjc7" path="res://Game/StarterGui/ControlPanel/CurrencyDisplay.tscn" id="13_hmm1m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ghvq8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -86,8 +86,8 @@ metadata/_edit_lock_ = true
 
 [node name="StarterGui" type="CanvasLayer" parent="." unique_id=1460679728]
 
-[node name="ControlPanel" parent="StarterGui" unique_id=208419686 instance=ExtResource("8_oscxy")]
-visible = false
+[node name="ControlPanel" parent="StarterGui" unique_id=208419686 node_paths=PackedStringArray("player") instance=ExtResource("8_oscxy")]
+player = NodePath("../../Player")
 
 [node name="CurrencyDisplay" parent="StarterGui" unique_id=1332540986 node_paths=PackedStringArray("player") instance=ExtResource("13_hmm1m")]
 player = NodePath("../../Player")
