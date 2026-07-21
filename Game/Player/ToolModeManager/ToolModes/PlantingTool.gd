@@ -32,7 +32,6 @@ func _ready() -> void:
 
 # Called then tool is activated
 func _on_activated():
-	player_camera.camera_type = player_camera.CameraType.FOLLOW_MOUSE
 	if land_raycast and land_raycast.is_node_ready():
 		land_raycast.enabled = true
 		set_process_unhandled_input(true)
@@ -40,7 +39,6 @@ func _on_activated():
 
 # Called then tool is deactivated
 func _on_deactivated():
-	player_camera.camera_type = player_camera.CameraType.DRAG
 	if land_raycast and land_raycast.is_node_ready():
 		land_raycast.enabled = false
 		set_process_unhandled_input(false)
@@ -82,5 +80,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Drag events
 	if event is InputEventScreenDrag:
-		_pick_land_from_screen_position(viewport.get_mouse_position())
+		if player_camera.camera_type == PlayerCamera.CameraType.FOLLOW_MOUSE:
+			_pick_land_from_screen_position(viewport.get_mouse_position())
 	

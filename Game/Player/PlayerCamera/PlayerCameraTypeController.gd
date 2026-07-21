@@ -1,4 +1,4 @@
-class_name PlayerCameraTypeController extends RefCounted
+@abstract class_name PlayerCameraTypeController extends RefCounted
 
 ## Current state
 var isActive: bool = false

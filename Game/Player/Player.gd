@@ -1,38 +1,53 @@
 class_name Player
 extends Node
 
+## game_root must be assigned by the current scene, not by Player.tscn,
+## and game_root must be the current scene.
 @export var game_root: Game
-@export var farmhouse: Farmhouse
-@export var land_handler: LandHandler
+var farmhouse: Farmhouse
+var land_handler: LandHandler
 
-@onready var player_camera: PlayerCamera = $PlayerCamera
+@export var player_camera: PlayerCamera
 @export var use_testing: bool
 
 func _ready() -> void:
+	_assert()
+	_setup()
+
+# Validates variables before setup.
+func _assert() -> void:
+	assert(game_root, "A <game_root> must be assigned.")
+	assert(game_root == get_tree().current_scene, "<game_root> must be the current scene.")
+	assert(game_root.farmhouse, "<game_root> must have a farmhouse assigned.")
+	assert(game_root.land_handler, "<game_root> must have a land_handler assigned.")
+
+func _setup() -> void:
+	# Assigning local variables
+	farmhouse = game_root.farmhouse
+	land_handler = game_root.land_handler
+	# Setting up managers and handlers
 	_setup_tool_mode_manager()
 	_setup_seed_inventory_handler()
 
-
-
 #region TOOL MODE API
+@export_group("Tool Mode Manager")
 # This part is meant to store and initalize the ToolModeManager along with public properties.
 
 # Defining tool mode manager, passing external nodes and signals.
-@onready var tool_mode_manager: ToolModeManager = $ToolModeManager
+@export var tool_mode_manager: ToolModeManager
 
 # Tool signals
 signal on_tool_mode_activate(tool_mode_name: String)
 signal on_tool_mode_deactivate(tool_mode_name: String)
 
-@export_group("Tool Mode Manager")
 ## Set use_testing to true to test.
 @export var use_testing_tool_on_ready: bool = false
 @export var testing_tool: String
 
 ## Setups connects for tool manager
 func _setup_tool_mode_manager():
-	tool_mode_manager.on_activate.connect(on_tool_mode_activate.emit)
-	tool_mode_manager.on_deactivate.connect(on_tool_mode_deactivate.emit)
+	tool_mode_manager.activated.connect(on_tool_mode_activate.emit)
+	tool_mode_manager.deactivated.connect(on_tool_mode_deactivate.emit)
 	
 	if use_testing and use_testing_tool_on_ready and testing_tool:
 		# Using testing tool

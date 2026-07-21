@@ -24,22 +24,22 @@
 # -----------------------------------------------------------------------------
 
 ## Current state of the mode
-var isActive: bool = false
+var is_active: bool = false
 
-## Emitted when the isActive state changes
-signal isActiveChanged
+## Emitted when the is_active state changes
+signal is_active_changed
 
 ## Base method for activating the mode.
 ## Always run this super-class method as super.activate() in the sub-class 
 ## to check if the tool mode can be activated or not.
 ## This functions returns true if the activation was successfull.
 func activate() -> bool:
-	if (isActive):
+	if (is_active):
 		return false
 	# Calling sub-class owned callback function
-	isActive = true
+	is_active = true
 	_on_activated()
-	isActiveChanged.emit()
+	is_active_changed.emit()
 	return true
 
 ## Called when tool is activated, used to handle the tool.
@@ -51,11 +51,11 @@ func _on_activated():
 ## to check if the tool mode can be deactivated or not.
 ## This functions returns true if the deactivation was successfull.
 func deactivate() -> bool:
-	if isActive == true:
+	if is_active == true:
 		# Calling sub-class owned callback function
-		isActive = false
+		is_active = false
 		_on_deactivated()
-		isActiveChanged.emit()
+		is_active_changed.emit()
 		return true
 	return false
 

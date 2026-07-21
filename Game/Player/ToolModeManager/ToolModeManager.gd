@@ -30,10 +30,14 @@ class_name ToolModeManager extends Node
 
 # Tool mode currently handled
 var current_tool_mode: ToolModeClass
+var current_tool_mode_name:
+	get():
+		return tool_modes.find_key(current_tool_mode)
 
 # Tool signals
-signal on_activate(tool_mode_name: String)
-signal on_deactivate(tool_mode_name: String)
+signal tool_mode_switched(new_tool_mode_name: String)
+signal activated(tool_mode_name: String)
+signal deactivated(tool_mode_name: String)
 
 # Tool modes variable declaration, make sure it assing a new tool_mode set once.
 @onready var tool_modes: Dictionary[String, ToolModeClass] = {
@@ -50,13 +54,13 @@ func _ready() -> void:
 func _setup_tool_signals():
 	for tool_mode_name in tool_modes.keys():
 		var tool_mode: ToolModeClass = tool_modes[tool_mode_name]
-		# Emtting on_activate or on_deactivate whether if the tool_mode isActive or not
-		tool_mode.isActiveChanged.connect(func():
-			match tool_mode.isActive:
+		# Emtting on_activate or on_deactivate whether if the tool_mode is_active or not
+		tool_mode.is_active_changed.connect(func():
+			match tool_mode.is_active:
 				true:
-					on_activate.emit(tool_mode_name)
+					activated.emit(tool_mode_name)
 				false:
-					on_deactivate.emit(tool_mode_name)
+					deactivated.emit(tool_mode_name)
 			)
 	pass
 
@@ -92,6 +96,8 @@ func switch_tool_mode(tool_mode_name: String):
 			current_tool_mode.deactivate()
 		current_tool_mode = new_tool_mode
 		current_tool_mode.activate()
+		# Emitting tool_mode_switched signal
+		tool_mode_switched.emit(tool_mode_name)
 	
 
 ## Returns true if the current_tool_mode has been deactivated sucessfully or there is no tool_mode.

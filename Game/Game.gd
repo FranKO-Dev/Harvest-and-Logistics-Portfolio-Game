@@ -1,6 +1,7 @@
 class_name Game extends Node3D
 
 # Public references
+@export var farmhouse: Farmhouse
 @export var city_manager: CityManager
 @export var land_handler: LandHandler
 

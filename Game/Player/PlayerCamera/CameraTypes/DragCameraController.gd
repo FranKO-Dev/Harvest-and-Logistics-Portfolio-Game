@@ -3,6 +3,7 @@ extends PlayerCameraTypeController
 ## Used to convert dragging into world space
 const drag_amplitude: float = 0.025
 
+
 ## Called when unhandled_input occurs in PlayerCamera.
 func _camera_unhandled_input(event: InputEvent):
 	if event is InputEventScreenDrag:

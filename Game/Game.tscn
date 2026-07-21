@@ -29,8 +29,9 @@ tonemap_mode = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_vl8r5"]
 size = Vector2(3, 3)
 
-[node name="Game" type="Node3D" unique_id=697521637 node_paths=PackedStringArray("city_manager", "land_handler")]
+[node name="Game" type="Node3D" unique_id=697521637 node_paths=PackedStringArray("farmhouse", "city_manager", "land_handler")]
 script = ExtResource("1_ghvq8")
+farmhouse = NodePath("WorldManager/Farmhouse")
 city_manager = NodePath("WorldManager/CityManager")
 land_handler = NodePath("WorldManager/LandHandler")
 
@@ -42,10 +43,8 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_opacity = 0.5
 directional_shadow_mode = 0
 
-[node name="Player" parent="." unique_id=2141064753 node_paths=PackedStringArray("game_root", "farmhouse", "land_handler") instance=ExtResource("2_r0byk")]
+[node name="Player" parent="." unique_id=2141064753 node_paths=PackedStringArray("game_root") instance=ExtResource("2_r0byk")]
 game_root = NodePath("..")
-farmhouse = NodePath("../WorldManager/Farmhouse")
-land_handler = NodePath("../WorldManager/LandHandler")
 
 [node name="WorldManager" type="Node" parent="." unique_id=1909743692]
 
