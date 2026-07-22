@@ -198,4 +198,19 @@ func plant_seed_on_land(land: Node3D, plant_seed: PlantSeed) -> Error:
 		return ERR_UNAVAILABLE
 	
 
+## Harvests the plant from a land if it is ready.
+## Returns the OK if success, or Error if the land is not ready or not enough scape.
+func havest_seed_on_land(land: Node3D) -> Error:
+	# Getting plant to harvest
+	var plant_to_harvest: Plant = land_handler.get_harvestable_plant(land)
+	if not plant_to_harvest:
+		return ERR_UNAVAILABLE
+	# Attempting to store the harvested plant
+	if farmhouse.add_plant_to_storage(plant_to_harvest, 1) == true:
+		# Updating harvested state of land
+		land_handler.clear_harvested(land)
+		return OK
+	else:
+		return ERR_ALREADY_IN_USE
+
 #endregion

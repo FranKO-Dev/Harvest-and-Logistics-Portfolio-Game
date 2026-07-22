@@ -47,3 +47,27 @@ func add_land_block(land_index: Vector2) -> Node3D:
 func spawn_seed_on_land(land: Node3D, plant_seed: PlantSeed) -> Error:
 	return _land_growing_component.spawn_seed_on_land(land, plant_seed)
 	
+
+## Harvests the plant from a land if it is ready.
+## Returns the harvested plant, or null if the land is not ready.
+func harvest_on_land(land: Node3D) -> Plant:
+	var plant: Plant = get_harvestable_plant(land)
+	if plant == null:
+		return null
+	# Remove plant from harvest tracking
+	clear_harvested(land)
+	return plant
+	
+
+## Returns the plant ready for harvest on a land.
+func get_harvestable_plant(land):
+	if not _land_growing_component.is_for_harvest(land):
+		return null
+	return _land_growing_component.get_harvestable_plant(land)
+	
+
+## Marks a land as harvested, removing plant from harvest tracking.
+func clear_harvested(land):
+	_land_growing_component.clear_harvested(land)
+	pass
+	

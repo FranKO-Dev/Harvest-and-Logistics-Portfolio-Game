@@ -1,12 +1,12 @@
 class_name LandGrowingComponent extends RefCounted
 
-# Dictionary that stores the current stage of the Land as Key
+# Dictionary that stores the current stage of the Land as value, and Land as key.
 var growing: Dictionary[Node3D, int] = {}
-# Plant currently growing on each land
+# Plant currently growing on each land, Land as Key, and Plant as value.
 var growing_plant: Dictionary[Node3D, Plant] = {}
-# Time accumulated for each land
+# Time accumulated for each land, Land as Key, and state time elapsed as value.
 var growing_time: Dictionary[Node3D, float] = {}
-# Dictionary of Lands that are ready for harvest
+# Dictionary of Lands that are ready for harvest, Land as key and Plant as value.
 var for_harvest: Dictionary[Node3D, Plant] = {}
 
 # Timer that handles growing for all plants in the lands
@@ -92,7 +92,7 @@ func _on_timer_timeout():
 		
 		var stage := growing[land]
 		
-		if stage >= plant.plant_stages.size():
+		if stage >= plant.plant_stages.size() -1:
 			for_harvest[land] = plant
 			# Keep showing the final stage
 			show_plant_stage(land,plant.plant_stages.size() - 1, plant)
@@ -149,15 +149,17 @@ func show_plant_stage(land: Node3D, stage: int = -1, plant: Plant = null):
 		render_plant_stage(land, stage, plant)
 	
 
+## Returns the plant ready for harvest on a land.
+func get_harvestable_plant(land: Node3D) -> Plant:
+	return for_harvest.get(land)
 
 ## Returns if a land is ready for harvest
 func is_for_harvest(land: Node3D) -> bool:
 	return for_harvest.has(land)
 	
 
-
 ## Runs after harvesting
-func update_havested(land: Node3D):
+func clear_harvested(land: Node3D):
 	for_harvest.erase(land)
 	
 	growing.erase(land)

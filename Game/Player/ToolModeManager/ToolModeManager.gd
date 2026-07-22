@@ -45,6 +45,7 @@ signal deactivated(tool_mode_name: String)
 # Tool modes variable declaration, make sure it assing a new tool_mode set once.
 @onready var tool_modes: Dictionary[String, ToolModeClass] = {
 	"PlantingTool" : $PlantingTool,
+	"HarvestingTool": $HarvestingTool,
 }
 
 

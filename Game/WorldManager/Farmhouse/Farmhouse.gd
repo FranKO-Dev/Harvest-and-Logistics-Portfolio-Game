@@ -31,6 +31,11 @@ func level_up():
 func is_plant_in_storage(plant: Plant):
 	# Code to check for inventory
 	return _storage.has_plant(plant)
+	
+## Adds an amount of a plant to the farmhouse storage.
+## Returns true if the plant was successfully added.
+func add_plant_to_storage(plant: Plant, amount: int = 1) -> bool:
+	return _storage.add_plant(plant, amount)
 
 ## Returns the current max capacity of the storage
 func get_storage_capacity() -> int:
