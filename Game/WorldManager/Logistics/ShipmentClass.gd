@@ -10,10 +10,6 @@ var on_accepted: Callable
 # Callback executed when the shipment is rejected.
 var on_rejected: Callable
 
-# Emitted when the shipment is accepted by the receiver.
-signal accepted
-# Emitted when the shipment is rejected by the receiver.
-signal rejected
 
 # Represents the current state of the shipment.
 enum Status {
@@ -55,7 +51,7 @@ func accept(...response):
 	
 	if on_accepted.is_valid():
 		on_accepted.callv(response)
-	accepted.emit()
+	
 
 # Rejects the shipment, then runs the callback previously defined.
 func reject(...response):
@@ -66,7 +62,7 @@ func reject(...response):
 	
 	if on_rejected.is_valid():
 		on_rejected.callv(response)
-	rejected.emit()
+	
 	
 # Returns the current status.
 func get_status() -> Status:
