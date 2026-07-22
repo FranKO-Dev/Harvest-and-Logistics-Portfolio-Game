@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drad2j00xrku2"]
 
 [ext_resource type="Script" uid="uid://dt13swqm7242k" path="res://Game/Player/ToolModeManager/ToolModeManager.gd" id="1_8xaao"]
-[ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="2_2giub"]
+[ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/LandToolModes/PlantingTool.gd" id="2_2giub"]
 [ext_resource type="Resource" uid="uid://cclp785usti2h" path="res://Game/Seeds/WheatSeed.tres" id="3_nvks6"]
 
 [node name="ToolModeManager" type="Node" unique_id=486732054]
