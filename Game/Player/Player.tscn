@@ -4,9 +4,8 @@
 [ext_resource type="Script" uid="uid://c6wqbx73sg4bn" path="res://Game/Player/PlayerCamera/PlayerCamera.gd" id="2_kt3un"]
 [ext_resource type="Script" uid="uid://dh5upjogn16yb" path="res://Game/Seeds/PlantSeed.gd" id="2_o2hno"]
 [ext_resource type="Resource" uid="uid://cclp785usti2h" path="res://Game/Seeds/WheatSeed.tres" id="3_65y41"]
-[ext_resource type="Script" uid="uid://dt13swqm7242k" path="res://Game/Player/ToolModeManager/ToolModeManager.gd" id="3_o2hno"]
-[ext_resource type="Script" uid="uid://bnlpuysk4a1uy" path="res://Game/Player/ToolModeManager/ToolModes/PlantingTool.gd" id="4_65y41"]
 [ext_resource type="Script" uid="uid://ehf3jm7c2vv2" path="res://Game/Player/CameraDirector.gd" id="4_sfkwu"]
+[ext_resource type="PackedScene" uid="uid://drad2j00xrku2" path="res://Game/Player/ToolModeManager/ToolModeManager.tscn" id="6_o2hno"]
 
 [node name="Player" type="Node" unique_id=2141064753 node_paths=PackedStringArray("player_camera", "tool_mode_manager")]
 script = ExtResource("1_2nirr")
@@ -30,12 +29,5 @@ transform = Transform3D(-0.9999905, 0.0037001988, -0.0023121473, 0, 0.52992034, 
 fov = 100.0
 script = ExtResource("2_kt3un")
 
-[node name="ToolModeManager" type="Node" parent="." unique_id=865334189]
-script = ExtResource("3_o2hno")
-
-[node name="PlantingTool" type="Node" parent="ToolModeManager" unique_id=1178862506 node_paths=PackedStringArray("player", "player_camera")]
-script = ExtResource("4_65y41")
-player = NodePath("../..")
-player_camera = NodePath("../../CameraDirector/PlayerCamera")
-plant_seed = ExtResource("3_65y41")
-metadata/_custom_type_script = "uid://bnlpuysk4a1uy"
+[node name="ToolModeManager" parent="." unique_id=486732054 node_paths=PackedStringArray("player") instance=ExtResource("6_o2hno")]
+player = NodePath("..")

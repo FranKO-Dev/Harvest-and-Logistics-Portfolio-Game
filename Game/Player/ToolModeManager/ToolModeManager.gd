@@ -28,6 +28,9 @@ class_name ToolModeManager extends Node
 #		ToolModeManager methods such as switch_tool_mode().
 # -----------------------------------------------------------------------------
 
+## Set by Player.tscn or a parent scene. Used to read properties from the Player. 
+@export var player: Player
+
 # Tool mode currently handled
 var current_tool_mode: ToolModeClass
 var current_tool_mode_name:
