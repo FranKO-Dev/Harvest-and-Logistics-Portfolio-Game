@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://8jan53r0b8fy"]
+
+[ext_resource type="Script" uid="uid://ck65jpexbgg66" path="res://Game/StarterGui/ControlPanel/ToolModeNavbar/ToolModeNavbar.gd" id="1_1vtg1"]
+[ext_resource type="Texture2D" uid="uid://d1wnh8nrvksm0" path="res://addons/kenney_ui-pack/Vector/Grey/button_square_depth_border.svg" id="1_rqjs7"]
+[ext_resource type="PackedScene" uid="uid://cwexd8yfbpalh" path="res://Game/StarterGui/ControlPanel/ToolModeNavbar/CloseButtonContainer/CloseButtonContainer.tscn" id="2_fj16h"]
+
+[node name="ToolModeNavbar" type="Control" unique_id=1940342656 node_paths=PackedStringArray("tool_buttons_container", "close_button_container")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -104.0
+offset_right = 80.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 1)
+script = ExtResource("1_1vtg1")
+tool_buttons_container = NodePath("MarginContainer/ToolButtonsContainer")
+close_button_container = NodePath("CloseButtonContainer")
+metadata/_tab_index = 1
+
+[node name="CloseButtonContainer" parent="." unique_id=2037976162 instance=ExtResource("2_fj16h")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=135433397]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_edit_lock_ = true
+
+[node name="ToolButtonsContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1507578922]
+layout_mode = 2
+alignment = 1
+
+[node name="PlantingToolButton" type="TextureButton" parent="MarginContainer/ToolButtonsContainer" unique_id=424000790]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_rqjs7")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/tool_mode_name = &"PlantingTool"
+
+[node name="KeyLabel" type="Label" parent="MarginContainer/ToolButtonsContainer/PlantingToolButton" unique_id=1025019029]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 12
+text = "..."
+
+[node name="Label" type="Label" parent="MarginContainer/ToolButtonsContainer/PlantingToolButton" unique_id=885980362]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+text = "Planting Tool"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="HarvestingToolButton" type="TextureButton" parent="MarginContainer/ToolButtonsContainer" unique_id=972366615]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_rqjs7")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/tool_mode_name = &"HarvestingTool"
+
+[node name="KeyLabel" type="Label" parent="MarginContainer/ToolButtonsContainer/HarvestingToolButton" unique_id=1497220363]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 12
+text = "..."
+
+[node name="Label" type="Label" parent="MarginContainer/ToolButtonsContainer/HarvestingToolButton" unique_id=1540421078]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+text = "Harvesting Tool"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[connection signal="close_button_pressed" from="CloseButtonContainer" to="." method="_on_close_button_pressed"]

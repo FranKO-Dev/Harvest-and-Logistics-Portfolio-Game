@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6xnvb5qber5b" path="res://Game/StarterGui/ControlPanel/ControlPanel.gd" id="1_up67l"]
 [ext_resource type="PackedScene" uid="uid://bdce5k44p6esp" path="res://Game/StarterGui/ControlPanel/Dashboard/Dashboard.tscn" id="2_p60x3"]
-[ext_resource type="PackedScene" uid="uid://8jan53r0b8fy" path="res://Game/StarterGui/ControlPanel/ToolModeNavbar.tscn" id="3_hcl77"]
+[ext_resource type="PackedScene" uid="uid://8jan53r0b8fy" path="res://Game/StarterGui/ControlPanel/ToolModeNavbar/ToolModeNavbar.tscn" id="3_hcl77"]
 
 [node name="ControlPanel" type="Control" unique_id=208419686]
 layout_mode = 3
@@ -18,5 +18,6 @@ script = ExtResource("1_up67l")
 visible = false
 layout_mode = 1
 
-[node name="ToolModeNavbar" parent="." unique_id=1940342656 instance=ExtResource("3_hcl77")]
+[node name="ToolModeNavbar" parent="." unique_id=1940342656 node_paths=PackedStringArray("control_panel") instance=ExtResource("3_hcl77")]
 layout_mode = 1
+control_panel = NodePath("..")

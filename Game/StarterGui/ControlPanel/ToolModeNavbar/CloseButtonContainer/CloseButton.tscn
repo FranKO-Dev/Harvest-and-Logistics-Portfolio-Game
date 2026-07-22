@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dwrp1eo3d54hc"]
+
+[ext_resource type="Texture2D" uid="uid://cc7ecmx8wuh6v" path="res://addons/kenney_ui-pack/Vector/Grey/button_round_flat.svg" id="1_ld8lf"]
+[ext_resource type="Texture2D" uid="uid://o64dgj2gjrn4" path="res://addons/kenney_ui-pack/Vector/Grey/button_round_line.svg" id="2_2lke4"]
+[ext_resource type="Texture2D" uid="uid://cfr1s2dpukthv" path="res://addons/kenney_ui-pack/Vector/Grey/icon_cross.svg" id="3_rcbd3"]
+
+[node name="CloseButton" type="TextureButton" unique_id=1542551755]
+self_modulate = Color(1, 0.39199674, 0.3225226, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+texture_normal = ExtResource("1_ld8lf")
+texture_pressed = ExtResource("2_2lke4")
+texture_hover = ExtResource("1_ld8lf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=358901137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_rcbd3")
+expand_mode = 3
+stretch_mode = 5
