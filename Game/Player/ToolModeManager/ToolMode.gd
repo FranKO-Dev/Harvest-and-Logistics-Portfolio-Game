@@ -1,13 +1,13 @@
-@abstract class_name ToolModeClass extends Node
+@abstract class_name ToolMode extends Node
 
 # -----------------------------------------------------------------------------
-#	ToolModeClass - BaseClass
+#	ToolMode - BaseClass
 #
 # Base class for all tool modes managed by ToolModeManager.
 #
 # Lifecycle ownership WARNING:
 #	ToolModeManager is the sole authority responsible for activating and
-#	deactivating tool modes. ToolModeClass instances should never manage the
+#	deactivating tool modes. ToolMode instances should never manage the
 #	activation state of other tool modes.
 #
 # Subclass rules:
