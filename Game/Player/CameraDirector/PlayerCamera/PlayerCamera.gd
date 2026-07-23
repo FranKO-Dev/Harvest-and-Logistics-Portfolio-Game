@@ -17,8 +17,8 @@ enum CameraType{
 signal camera_type_changed(new_value: CameraType)
 
 # Camera controllers
-@onready var _drag_camera_controller = preload("res://Game/Player/PlayerCamera/CameraTypes/DragCameraController.gd").new(self)
-@onready var _follow_mouse_camera_controller = preload("res://Game/Player/PlayerCamera/CameraTypes/FollowMouseCameraController.gd").new(self)
+@onready var _drag_camera_controller = preload("res://Game/Player/CameraDirector/PlayerCamera/CameraTypes/DragCameraController.gd").new(self)
+@onready var _follow_mouse_camera_controller = preload("res://Game/Player/CameraDirector/PlayerCamera/CameraTypes/FollowMouseCameraController.gd").new(self)
 
 func _ready() -> void:
 	var current_controller = _get_camera_controller(camera_type)

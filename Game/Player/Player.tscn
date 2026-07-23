@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cnneribnhmj3x"]
 
 [ext_resource type="Script" uid="uid://blc5vroshl0ot" path="res://Game/Player/Player.gd" id="1_2nirr"]
-[ext_resource type="Script" uid="uid://c6wqbx73sg4bn" path="res://Game/Player/PlayerCamera/PlayerCamera.gd" id="2_kt3un"]
+[ext_resource type="Script" uid="uid://c6wqbx73sg4bn" path="res://Game/Player/CameraDirector/PlayerCamera/PlayerCamera.gd" id="2_kt3un"]
 [ext_resource type="Script" uid="uid://dh5upjogn16yb" path="res://Game/Seeds/PlantSeed.gd" id="2_o2hno"]
 [ext_resource type="Resource" uid="uid://cclp785usti2h" path="res://Game/Seeds/WheatSeed.tres" id="3_65y41"]
-[ext_resource type="Script" uid="uid://ehf3jm7c2vv2" path="res://Game/Player/CameraDirector.gd" id="4_sfkwu"]
+[ext_resource type="Script" uid="uid://ehf3jm7c2vv2" path="res://Game/Player/CameraDirector/CameraDirector.gd" id="4_sfkwu"]
 [ext_resource type="PackedScene" uid="uid://drad2j00xrku2" path="res://Game/Player/ToolModeManager/ToolModeManager.tscn" id="6_o2hno"]
 
 [node name="Player" type="Node" unique_id=2141064753 node_paths=PackedStringArray("player_camera", "tool_mode_manager")]
