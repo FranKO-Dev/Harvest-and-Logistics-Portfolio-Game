@@ -6,7 +6,7 @@ class_name ToolModeManager extends Node
 #	deactivating tool modes.
 #
 #	- Invariant:
-#	Only one ToolModeClass may be active at any given time.
+#	Only one ToolMode may be active at any given time.
 #
 #	- Why this exists:
 #	If multiple tool modes become active simultaneously, game behavior becomes
@@ -19,7 +19,7 @@ class_name ToolModeManager extends Node
 #	behavior.
 #
 #	Rules:
-#	1.	Never call activate() or deactivate() on a ToolModeClass from outside
+#	1.	Never call activate() or deactivate() on a ToolMode from outside
 #		ToolModeManager.
 #
 #	2.	Accessing tool properties and calling tool-specific methods is allowed.
@@ -32,7 +32,7 @@ class_name ToolModeManager extends Node
 @export var player: Player
 
 # Tool mode currently handled
-var current_tool_mode: ToolModeClass
+var current_tool_mode: ToolMode
 var current_tool_mode_name:
 	get():
 		return tool_modes.find_key(current_tool_mode)
@@ -43,7 +43,7 @@ signal activated(tool_mode_name: String)
 signal deactivated(tool_mode_name: String)
 
 # Tool modes variable declaration, make sure it assing a new tool_mode set once.
-@onready var tool_modes: Dictionary[String, ToolModeClass] = {
+@onready var tool_modes: Dictionary[String, ToolMode] = {
 	"PlantingTool" : $PlantingTool,
 	"HarvestingTool": $HarvestingTool,
 }
@@ -57,7 +57,7 @@ func _ready() -> void:
 # Connects the signals from tool_modes and unifies them on on_activate and on_deactivate
 func _setup_tool_signals():
 	for tool_mode_name in tool_modes.keys():
-		var tool_mode: ToolModeClass = tool_modes[tool_mode_name]
+		var tool_mode: ToolMode = tool_modes[tool_mode_name]
 		# Emtting on_activate or on_deactivate whether if the tool_mode is_active or not
 		tool_mode.is_active_changed.connect(func():
 			match tool_mode.is_active:
@@ -72,8 +72,8 @@ func _setup_tool_signals():
 func tool_mode_exists(tool_mode_name: String) -> bool:
 	return tool_modes.keys().has(tool_mode_name)
 
-## Returns a ToolModeClass registered in tool_modes safely. In case not found, it returns null.
-func get_tool_mode(tool_mode_name: String) -> ToolModeClass:
+## Returns a ToolMode registered in tool_modes safely. In case not found, it returns null.
+func get_tool_mode(tool_mode_name: String) -> ToolMode:
 	if tool_mode_exists(tool_mode_name) == false:
 		push_warning("Tool Mode '%s' doesn't exist in tool_modes. It must be registered."% tool_mode_name)
 		return null
@@ -87,7 +87,7 @@ func get_tool_mode_names() -> Array[String]:
 ## In case it's the same tool_mode as the current one, it will get activated safely.
 func switch_tool_mode(tool_mode_name: String):
 	# Getting new tool mode
-	var new_tool_mode: ToolModeClass = get_tool_mode(tool_mode_name)
+	var new_tool_mode: ToolMode = get_tool_mode(tool_mode_name)
 	# In case not found
 	if not new_tool_mode:
 		return

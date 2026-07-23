@@ -1,4 +1,4 @@
-class_name ShipmentClass extends RefCounted
+class_name Shipment extends RefCounted
 
 # Items included in the shipment and their quantities.
 var shipment: Dictionary[Plant, int]

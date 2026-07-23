@@ -1,4 +1,4 @@
-@abstract class_name LandTool extends ToolModeClass
+@abstract class_name LandTool extends ToolMode
 
 
 ## Player and its properties
